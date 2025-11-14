@@ -37,17 +37,20 @@ def exportar_deputados(session):
         total_base = presencas + faltas_penalizadoras
         assiduidade_pct = round((presencas / total_base * 100), 2) if total_base > 0 else 0
         
-        resultado.append({
-            'id': dep.id,
-            'nome': dep.nome_original_ultimo,
-            'partido': dep.partido_atual,
-            'presencas': presencas,
-            'faltas_justificadas': faltas_justificadas,
-            'missao_parlamentar_amp': missao_parlamentar,
-            'faltas_penalizadoras': faltas_penalizadoras,
-            'assiduidade_pct': assiduidade_pct
-        })
+        # IMPORTANTE: Só exportar deputados que têm pelo menos 1 registo de assiduidade
+        if len(assiduidades) > 0:
+            resultado.append({
+                'id': dep.id,
+                'nome': dep.nome_original_ultimo,
+                'partido': dep.partido_atual,
+                'presencas': presencas,
+                'faltas_justificadas': faltas_justificadas,
+                'missao_parlamentar_amp': missao_parlamentar,
+                'faltas_penalizadoras': faltas_penalizadoras,
+                'assiduidade_pct': assiduidade_pct
+            })
     
+    print(f"   ✅ {len(resultado)} deputados com registos de assiduidade")
     return {'ok': True, 'deputados': resultado}
 
 def exportar_sessoes(session):
@@ -172,6 +175,7 @@ def main():
         }
         
         # Salvar cada arquivo
+        print()
         for filename, data in arquivos.items():
             filepath = output_dir / filename
             with open(filepath, 'w', encoding='utf-8') as f:
