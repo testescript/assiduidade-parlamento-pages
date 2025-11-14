@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>Transparência Parlamentar — Landing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Barra de navegação comum */
+    .site-header { background:#1e3a8a; color:#fff; border-bottom:1px solid #15306d; }
+    .site-header .container-nav { max-width:1200px; margin:0 auto; padding:.6rem 1rem; display:flex; justify-content:space-between; align-items:center; }
+    .site-header .brand a { color:#fff; text-decoration:none; font-weight:700; }
+    .site-header nav a { color:#e0e7ff; text-decoration:none; margin:0 .4rem; padding:.35rem .6rem; border-radius:8px; }
+    .site-header nav a:hover { background:rgba(255,255,255,.15); }
+    .site-header nav a.active { background:#2563eb; color:#fff; }
+    :root {
+      --bg: #f9fafb;
+      --panel-bg: #fff;
+      --text: #111;
+      --border: #e5e7eb;
+      --primary: #1e3a8a;
+      --secondary: #059669;
+      --header-bg: #1e3a8a;
+    }
+    body.dark-mode {
+      --bg: #0f172a;
+      --panel-bg: #1e293b;
+      --text: #f1f5f9;
+      --border: #334155;
+      --primary: #3b82f6;
+      --secondary: #10b981;
+      --header-bg: #0f172a;
+    }
+    body { font-family: 'Inter', sans-serif; margin:0; background:var(--bg); color:var(--text); transition: background .3s, color .3s; }
+    .page-intro {
+      background:var(--header-bg);
+      color:#fff;
+      padding:1.5rem;
+      position:relative;
+      border-bottom:1px solid rgba(15,23,42,0.25);
+      border-top:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 18px 36px rgba(15,23,42,0.25);
+      text-align:center;
+    }
+    .page-intro h1 { margin:0; font-size:1.8rem; }
+    .page-intro p { margin:.5rem 0 0; opacity:.9; font-size:1.1rem; }
+    .dark-toggle { position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,.2); border:none; padding:.5rem 1rem; border-radius:20px; cursor:pointer; color:#fff; font-weight:600; }
+    .dark-toggle:hover { background:rgba(255,255,255,.3); }
+    .container { padding:2rem; max-width:900px; margin:auto; }
+    section { margin-bottom:2rem; }
+    h2 { color:var(--primary); margin-bottom:.5rem; }
+    p { line-height:1.6; }
+    .cta { text-align:center; margin-top:2rem; display:flex; flex-direction:column; gap:1rem; align-items:center; }
+    .cta a {
+      background:var(--primary); color:#fff; padding:.8rem 1.2rem; border-radius:8px;
+      text-decoration:none; font-weight:600; display:inline-block; min-width:250px;
+    }
+    .cta a:hover { opacity:.9; }
+    .cta a.secondary { background:var(--secondary); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container-nav">
+      <div class="brand"><a href="landing.html">Transparência Parlamentar</a></div>
+      <nav>
+        <a href="public.html">Resumo Público</a>
+        <a href="analise.html">Análise</a>
+        <a href="atividade.html">Actividade</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-intro">
+    <h1>🏠 Transparência Parlamentar</h1>
+    <p>Acompanhe de forma simples a presença e o compromisso dos deputados portugueses</p>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+  </section>
+
+  <div class="container">
+    <section>
+      <h2>📖 Por que criámos esta plataforma</h2>
+      <p>
+        Os registos de presenças e faltas no Parlamento existem, mas são difíceis de consultar,
+        comparar e compreender. Reunimos a informação oficial, tratámo-la e apresentamo-la em
+        dashboards intuitivos para que qualquer pessoa consiga, num minuto, perceber quem está
+        presente, quem falta e como isso evolui ao longo da legislatura.
+      </p>
+    </section>
+
+    <section>
+      <h2>🎯 O que queremos alcançar</h2>
+      <p>
+        Promover <strong>transparência</strong>, reforçar a <strong>responsabilidade pública</strong>
+        e aproximar os cidadãos das decisões tomadas em seu nome. Quanto mais acessível for a
+        informação, mais fácil se torna escrutinar o trabalho parlamentar e exigir melhores
+        práticas.
+      </p>
+    </section>
+
+    <section>
+      <h2>📊 Como navegar pelos dados</h2>
+      <p>Os principais painéis respondem a perguntas diferentes:</p>
+      <ul>
+        <li><strong>Ranking de Assiduidade</strong>: identifica os deputados mais presentes e os mais ausentes.</li>
+        <li><strong>Médias por Partido</strong>: mostra como cada partido se posiciona face aos restantes.</li>
+        <li><strong>Evolução Temporal</strong>: acompanha as variações sessão a sessão e revela tendências.</li>
+      </ul>
+      <p>
+        Em conjunto, estes indicadores permitem detetar padrões, comparar comportamentos e
+        perceber rapidamente quem assume o compromisso parlamentar.
+      </p>
+    </section>
+
+    <section>
+      <h2>🔍 O que está disponível</h2>
+      <p>
+        <strong>Vista Pública:</strong> resumo visual imediato com os indicadores essenciais de assiduidade,
+        ideal para uma consulta rápida.
+      </p>
+      <p>
+        <strong>Análise Interativa:</strong> ambiente completo para investigação: filtros por legislatura,
+        comparações lado-a-lado, tabela detalhada ordenável, exportação de dados, gráficos avançados e
+        métricas agregadas em tempo real.
+      </p>
+      <p>
+        <strong>Actividade Parlamentar:</strong> cruzamento de iniciativas, intervenções e outros actos oficiais
+        com a agenda parlamentar — para perceber quem participa, como e quando.
+      </p>
+    </section>
+
+    <section>
+      <h2>📂 Fontes e metodologia</h2>
+      <p>
+        Os dados são obtidos a partir de registos oficiais do Parlamento, tratados com regras de validação
+        consistentes (estado da presença, motivos justificados, missões parlamentares). Cada carregamento
+        é verificado antes de ser disponibilizado, garantindo coerência e comparabilidade entre sessões.
+      </p>
+    </section>
+
+    <div class="cta">
+      <a href="public.html">📊 Ver Resumo Público</a>
+      <a href="analise.html" class="secondary">🔬 Análise Interativa Avançada</a>
+      <a href="atividade.html" class="secondary" style="background:#059669;">🧭 Actividade Parlamentar</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDark);
+      document.querySelector('.dark-toggle').textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+    }
+
+    // Apply dark mode from localStorage on page load
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+      document.querySelector('.dark-toggle').textContent = '☀️ Modo Claro';
+    }
+  </script>
+</body>
+</html>

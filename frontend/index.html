@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>Assiduidade Parlamentar — Transparência em Tempo Real</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --bg: #0f172a;        /* azul escuro */
+      --panel: #111827;     /* cinza-azulado */
+      --text: #e5e7eb;      /* cinza claro */
+      --muted: #9ca3af;
+      --accent: #60a5fa;    /* azul */
+      --accent2: #f97316;   /* laranja */
+      --success: #10b981;   /* verde */
+      --error: #ef4444;     /* vermelho */
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(1200px 1200px at 20% 0%, #111827 0%, #0f172a 50%, #0b1220 100%);
+      color: var(--text);
+    }
+    header {
+      padding: 2rem 2rem 1rem; border-bottom: 1px solid var(--border);
+    }
+    h1 { margin: 0; font-size: 1.8rem; }
+    .subtitle { color: var(--muted); margin-top: .5rem; font-size: .95rem; }
+    .container { padding: 2rem; display: grid; gap: 1.5rem; }
+    .grid-2 { display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .panel h2 { margin: 0 0 .8rem; font-size: 1.2rem; }
+    .panel p { margin: .5rem 0; color: var(--muted); }
+    .row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    button, input[type="file"], select {
+      background: #0b1a2a; color: var(--text); border: 1px solid var(--border);
+      padding: .6rem .8rem; border-radius: 10px; cursor: pointer; font-weight: 600;
+    }
+    button:hover { border-color: var(--accent); }
+    .ok { color: var(--success); font-weight: 700; }
+    .err { color: var(--error); font-weight: 700; }
+    pre {
+      background: #0b1422; border: 1px solid var(--border); padding: .8rem; border-radius: 10px;
+      overflow: auto; max-height: 300px;
+    }
+    canvas { max-height: 380px; }
+    .badge { display: inline-block; padding: .25rem .5rem; background: #0d2238; border: 1px solid var(--border);
+      border-radius: 999px; font-size: .8rem; color: var(--muted); }
+    .stat { display:flex; gap:.6rem; align-items:center; }
+    .stat strong { color: var(--text); }
+    .table { width: 100%; border-collapse: collapse; margin-top: .5rem; }
+    .table th, .table td { border-bottom: 1px solid var(--border); padding: .5rem; text-align: left; color: var(--muted); }
+    @media (max-width:920px) { .grid-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Assiduidade Parlamentar</h1>
+    <div class="subtitle">Transparência prática e visual sobre presenças, faltas e missões parlamentares.</div>
+  </header>
+
+  <div class="container">
+    <div class="panel">
+      <h2>Upload de dados (CSV/JSON)</h2>
+      <form id="uploadForm" class="row">
+        <input type="file" id="file" accept=".csv,.json" required />
+        <button type="submit">Enviar</button>
+        <span id="status" class="badge"></span>
+      </form>
+      <div class="grid-2">
+        <div>
+          <h3>Resumo do upload</h3>
+          <div id="resumoVazio" class="badge">Sem uploads nesta sessão</div>
+          <div id="resumo"></div>
+        </div>
+        <div>
+          <h3>Últimos uploads</h3>
+          <table class="table">
+            <thead><tr><th>ID sessão</th><th>Tipo</th><th>Data</th></tr></thead>
+            <tbody id="ultimosUploadsTbody"><tr><td colspan="3">Sem uploads ainda</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <details style="margin-top:1rem;">
+        <summary>Ver resposta bruta do backend</summary>
+        <pre id="statusRaw"></pre>
+      </details>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Assiduidade por deputado</h2>
+        <div class="row">
+          <label for="filtroPartido" class="badge">Filtrar partido:</label>
+          <select id="filtroPartido"></select>
+        </div>
+        <canvas id="graficoAssiduidade"></canvas>
+      </div>
+
+      <div class="panel">
+        <h2>Média de assiduidade por partido</h2>
+        <canvas id="graficoPartidos"></canvas>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Evolução temporal por sessão</h2>
+      <p>Percentagem de assiduidade por sessão (excluindo AMP das penalizações).</p>
+      <canvas id="graficoTemporal"></canvas>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Deputados (JSON)</h2>
+        <pre id="deputados"></pre>
+      </div>
+      <div class="panel">
+        <h2>Sessões (JSON)</h2>
+        <pre id="sessoes"></pre>
+      </div>
+    </div>
+  </div>
+
+<script>
+let uploadsRecentes = [];
+let chartAssiduidade = null;
+let chartPartidos = null;
+let chartTemporal = null;
+
+function fmtData(d) {
+  if (!d) return "-";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(d)) {
+    const [y,m,day] = d.split("-");
+    return `${day}-${m}-${y}`;
+  }
+  return d;
+}
+
+function setStatus(texto, tipo=null) {
+  const el = document.getElementById("status");
+  el.textContent = texto || "";
+  el.className = "badge";
+  if (tipo === "ok") el.classList.add("ok");
+  if (tipo === "err") el.classList.add("err");
+}
+
+function renderUploadsRecentes() {
+  const tbody = document.getElementById("ultimosUploadsTbody");
+  if (uploadsRecentes.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="3">Sem uploads ainda</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = uploadsRecentes
+    .slice(0, 2)
+    .map(u => `<tr><td>${u.id}</td><td>${u.tipo}</td><td>${fmtData(u.data)}</td></tr>`)
+    .join("");
+}
+
+async function doUpload(file, substituir = false) {
+  const formData = new FormData();
+  formData.append("file", file);
+  if (substituir) {
+    formData.append("substituir", "true");
+  }
+  const res = await fetch(`${CONFIG.apiUrl}/upload`, { method: "POST", body: formData });
+  const data = await res.json();
+  return { status: res.status, data };
+}
+
+document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const fileInput = document.getElementById("file");
+  if (!fileInput.files.length) return;
+
+  setStatus("A enviar...");
+  const statusRaw = document.getElementById("statusRaw");
+  try {
+    const { status, data } = await doUpload(fileInput.files[0]);
+    statusRaw.textContent = JSON.stringify(data, null, 2);
+
+    if (status === 200 && data.ok) {
+      if (data.tipo === 'atividade' || data.tipo === 'agenda') {
+        setStatus(`✅ ${data.mensagem}`, "ok");
+        document.getElementById("resumoVazio").style.display = "none";
+        const resumoDiv = document.getElementById("resumo");
+        resumoDiv.innerHTML = `<div><strong>Ficheiro:</strong> ${data.ficheiro || '-'}<br/><strong>Tipo:</strong> ${data.tipo}</div>`;
+        await carregarDeputados();
+        await carregarSessoes();
+        await carregarTemporal();
+        return;
+      }
+      const mensagemSucesso = data.substituiu ? 
+        `✅ ${data.mensagem} (sessão anterior foi substituída)` : 
+        data.mensagem || "Upload concluído";
+      setStatus(mensagemSucesso, "ok");
+      document.getElementById("resumoVazio").style.display = "none";
+      const resumoDiv = document.getElementById("resumo");
+      resumoDiv.innerHTML = `
+        <div class="row">
+          <div class="stat"><strong>Sessão:</strong> <span>${data.sessao.id_legis_sessao}</span></div>
+          <div class="stat"><strong>Legislatura:</strong> <span>${data.sessao.legislatura}</span></div>
+          <div class="stat"><strong>Data:</strong> <span>${fmtData(data.sessao.data)}</span></div>
+          <div class="stat"><strong>Tipo:</strong> <span>${data.sessao.tipo}</span></div>
+        </div>
+        <div class="row">
+          <div class="stat"><strong>Total linhas:</strong> <span>${data.resumo?.total_linhas ?? "-"}</span></div>
+          <div class="stat"><strong>Nomes distintos:</strong> <span>${data.resumo?.nomes_distintos ?? "-"}</span></div>
+          <div class="stat"><strong>Inseridos:</strong> <span>${data.inseridos ?? "-"}</span></div>
+          <div class="stat"><strong>Novos deputados:</strong> <span>${data.novos_deputados ?? "-"}</span></div>
+          <div class="stat"><strong>Duplicados ignorados:</strong> <span>${data.duplicados_ignorados ?? "-"}</span></div>
+        </div>
+      `;
+
+      uploadsRecentes.unshift({
+        id: data.sessao.id_legis_sessao,
+        tipo: data.sessao.tipo,
+        data: data.sessao.data
+      });
+      if (uploadsRecentes.length > 2) uploadsRecentes.pop();
+      renderUploadsRecentes();
+
+      await carregarDeputados();
+      await carregarSessoes();
+      await carregarTemporal();
+    } else if (status === 409 && data.requer_confirmacao) {
+      // Sessão já existe - perguntar se quer substituir
+      const confirmar = confirm(
+        `⚠️ A sessão "${data.sessao.id_legis_sessao}" já foi carregada anteriormente.\n\n` +
+        `Deseja substituir a sessão existente pelos novos dados?\n\n` +
+        `ATENÇÃO: Esta ação irá apagar todos os dados da sessão anterior!`
+      );
+      
+      if (confirmar) {
+        setStatus("A substituir sessão existente...");
+        const { status: status2, data: data2 } = await doUpload(fileInput.files[0], true);
+        statusRaw.textContent = JSON.stringify(data2, null, 2);
+        
+        if (status2 === 200 && data2.ok) {
+          setStatus("✅ Sessão substituída com sucesso!", "ok");
+          document.getElementById("resumoVazio").style.display = "none";
+          const resumoDiv = document.getElementById("resumo");
+          resumoDiv.innerHTML = `
+            <div class="row">
+              <div class="stat"><strong>Sessão:</strong> <span>${data2.sessao.id_legis_sessao}</span></div>
+              <div class="stat"><strong>Legislatura:</strong> <span>${data2.sessao.legislatura}</span></div>
+              <div class="stat"><strong>Data:</strong> <span>${fmtData(data2.sessao.data)}</span></div>
+              <div class="stat"><strong>Tipo:</strong> <span>${data2.sessao.tipo}</span></div>
+            </div>
+            <div class="row">
+              <div class="stat"><strong>Total linhas:</strong> <span>${data2.resumo?.total_linhas ?? "-"}</span></div>
+              <div class="stat"><strong>Nomes distintos:</strong> <span>${data2.resumo?.nomes_distintos ?? "-"}</span></div>
+              <div class="stat"><strong>Inseridos:</strong> <span>${data2.inseridos ?? "-"}</span></div>
+              <div class="stat"><strong>Novos deputados:</strong> <span>${data2.novos_deputados ?? "-"}</span></div>
+              <div class="stat"><strong>Duplicados ignorados:</strong> <span>${data2.duplicados_ignorados ?? "-"}</span></div>
+            </div>
+          `;
+          
+          uploadsRecentes.unshift({
+            id: data2.sessao.id_legis_sessao,
+            tipo: data2.sessao.tipo,
+            data: data2.sessao.data
+          });
+          if (uploadsRecentes.length > 2) uploadsRecentes.pop();
+          renderUploadsRecentes();
+
+          await carregarDeputados();
+          await carregarSessoes();
+          await carregarTemporal();
+        } else {
+          setStatus(data2.mensagem || "Erro ao substituir sessão.", "err");
+        }
+      } else {
+        setStatus("Upload cancelado pelo utilizador.", "err");
+      }
+    } else if (status === 409) {
+      setStatus(data.mensagem || "Sessão já existente.", "err");
+    } else {
+      // Erro de validação: mostrar detalhes
+      setStatus(data.mensagem || "Erro no upload.", "err");
+      const violacoes = Array.isArray(data.violacoes) ? data.violacoes : [];
+      if (violacoes.length) {
+        const resumoDiv = document.getElementById("resumo");
+        resumoDiv.innerHTML = `
+          <p><strong>Detalhes:</strong></p>
+          <pre>${violacoes.map(v => `Linha ${v.linha}: ${v.deputado} — ${v.assiduidade} — ${v.erro}${v.motivo ? " ("+v.motivo+")" : ""}`).join("\n")}</pre>
+        `;
+      }
+    }
+  } catch (err) {
+    setStatus(`Falha ao comunicar com o backend: ${err}`, "err");
+  }
+});
+
+async function carregarDeputados() {
+  const el = document.getElementById("deputados");
+  try {
+    const data = await fetchData('/deputados');
+    el.textContent = JSON.stringify(data, null, 2);
+
+    if (data.ok) {
+      // preparar filtro de partido
+      const partidos = Array.from(new Set(data.deputados.map(d => d.partido).filter(Boolean))).sort();
+      const select = document.getElementById("filtroPartido");
+      select.innerHTML = `<option value="">Todos</option>` + partidos.map(p => `<option value="${p}">${p}</option>`).join("");
+      select.onchange = () => desenharGraficoAssiduidade(data.deputados, select.value);
+
+      desenharGraficoAssiduidade(data.deputados, "");
+      desenharGraficoPartidos(data.deputados);
+    }
+  } catch (e) {
+    el.textContent = `Erro: ${e}`;
+  }
+}
+
+function desenharGraficoAssiduidade(deputados, filtroPartido="") {
+  const ctx = document.getElementById("graficoAssiduidade").getContext("2d");
+  const filtrados = filtroPartido ? deputados.filter(d => d.partido === filtroPartido) : deputados.slice();
+  // Ordenar por assiduidade desc e pegar top 20
+  filtrados.sort((a,b) => b.assiduidade_pct - a.assiduidade_pct);
+  const top = filtrados.slice(0, 20);
+
+  const labels = top.map(d => d.nome);
+  const valores = top.map(d => d.assiduidade_pct);
+
+  if (chartAssiduidade) chartAssiduidade.destroy();
+  chartAssiduidade = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Assiduidade (%)',
+        data: valores,
+        backgroundColor: 'rgba(96, 165, 250, 0.6)',
+        borderColor: 'rgba(96, 165, 250, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: filtroPartido ? `Top 20 — ${filtroPartido}` : 'Top 20 — Assiduidade geral' }
+      },
+      scales: { y: { beginAtZero: true, max: 100 } }
+    }
+  });
+}
+
+function calcularMediaPorPartido(deputados) {
+  const acumulado = {};
+  deputados.forEach(d => {
+    if (!d.partido) return;
+    if (!acumulado[d.partido]) acumulado[d.partido] = { soma: 0, count: 0 };
+    acumulado[d.partido].soma += d.assiduidade_pct;
+    acumulado[d.partido].count += 1;
+  });
+  const labels = Object.keys(acumulado).sort();
+  const medias = labels.map(p => +(acumulado[p].soma / acumulado[p].count).toFixed(2));
+  return { labels, medias };
+}
+
+function desenharGraficoPartidos(deputados) {
+  const ctx = document.getElementById("graficoPartidos").getContext("2d");
+  const { labels, medias } = calcularMediaPorPartido(deputados);
+
+  if (chartPartidos) chartPartidos.destroy();
+  chartPartidos = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Média de Assiduidade (%)',
+        data: medias,
+        backgroundColor: 'rgba(249, 115, 22, 0.6)',
+        borderColor: 'rgba(249, 115, 22, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: 'Média de assiduidade por partido' }
+      },
+      scales: { y: { beginAtZero: true, max: 100 } }
+    }
+  });
+}
+
+async function carregarSessoes() {
+  const el = document.getElementById("sessoes");
+  try {
+    const data = await fetchData('/sessoes');
+    el.textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    el.textContent = `Erro: ${e}`;
+  }
+}
+
+async function carregarTemporal() {
+  const ctx = document.getElementById("graficoTemporal").getContext("2d");
+  try {
+    const data = await fetchData('/estatisticas/sessoes');
+    if (!data.ok) return;
+
+    const labels = data.sessoes.map(s => `${fmtData(s.data)} (${s.tipo})`);
+    const valores = data.sessoes.map(s => s.assiduidade_pct);
+
+    if (chartTemporal) chartTemporal.destroy();
+    chartTemporal = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Assiduidade (%) por sessão',
+          data: valores,
+          tension: 0.3,
+          fill: false,
+          borderColor: 'rgba(34, 197, 94, 1)',
+          backgroundColor: 'rgba(34, 197, 94, 0.2)',
+          pointRadius: 3,
+          pointHoverRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Evolução temporal da assiduidade por sessão' },
+          tooltip: { enabled: true }
+        },
+        scales: {
+          y: { beginAtZero: true, max: 100 },
+          x: { ticks: { maxRotation: 0, autoSkip: true } }
+        }
+      }
+    });
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+renderUploadsRecentes();
+carregarDeputados();
+carregarSessoes();
+carregarTemporal();
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""
+Script para exportar dados da base de dados SQLite para JSON estáticos
+para uso no GitHub Pages (sem backend)
+"""
+
+import json
+import sys
+import os
+from pathlib import Path
+
+# Adicionar backend ao path
+sys.path.insert(0, str(Path(__file__).parent / 'backend'))
+
+from models import get_engine_and_session, Deputado, Sessao, Assiduidade, DeputadoAtividade, AgendaItem
+from sqlalchemy import func
+
+def exportar_deputados(session):
+    """Exporta dados de deputados com métricas de assiduidade"""
+    print("📊 Exportando deputados...")
+    
+    deputados = session.query(Deputado).all()
+    resultado = []
+    
+    for dep in deputados:
+        # Calcular métricas
+        assiduidades = session.query(Assiduidade).filter(
+            Assiduidade.deputado_id == dep.id
+        ).all()
+        
+        presencas = sum(1 for a in assiduidades if a.status == 'P')
+        faltas_penalizadoras = sum(1 for a in assiduidades if a.status == 'FQ')
+        faltas_justificadas = sum(1 for a in assiduidades if a.status == 'FJ')
+        missao_parlamentar = sum(1 for a in assiduidades if a.status == 'AMP')
+        
+        total_base = presencas + faltas_penalizadoras
+        assiduidade_pct = round((presencas / total_base * 100), 2) if total_base > 0 else 0
+        
+        resultado.append({
+            'id': dep.id,
+            'nome': dep.nome_original_ultimo,
+            'partido': dep.partido_atual,
+            'presencas': presencas,
+            'faltas_justificadas': faltas_justificadas,
+            'missao_parlamentar_amp': missao_parlamentar,
+            'faltas_penalizadoras': faltas_penalizadoras,
+            'assiduidade_pct': assiduidade_pct
+        })
+    
+    return {'ok': True, 'deputados': resultado}
+
+def exportar_sessoes(session):
+    """Exporta dados de sessões"""
+    print("📅 Exportando sessões...")
+    
+    sessoes = session.query(Sessao).all()
+    resultado = []
+    
+    for s in sessoes:
+        resultado.append({
+            'id': s.id,
+            'legislatura': s.legislatura,
+            'numero': s.numero,
+            'tipo': s.tipo,
+            'data': s.data.isoformat() if s.data else None,
+            'id_legis_sessao': s.id_legis_sessao
+        })
+    
+    return {'ok': True, 'sessoes': resultado}
+
+def exportar_estatisticas_sessoes(session):
+    """Exporta estatísticas agregadas por sessão"""
+    print("📈 Exportando estatísticas de sessões...")
+    
+    sessoes = session.query(Sessao).all()
+    resultado = []
+    
+    for s in sessoes:
+        assiduidades = session.query(Assiduidade).filter(
+            Assiduidade.sessao_id == s.id
+        ).all()
+        
+        presencas = sum(1 for a in assiduidades if a.status == 'P')
+        faltas = sum(1 for a in assiduidades if a.status == 'FQ')
+        total = presencas + faltas
+        
+        resultado.append({
+            'id_legis_sessao': s.id_legis_sessao,
+            'legislatura': s.legislatura,
+            'numero': s.numero,
+            'tipo': s.tipo,
+            'data': s.data.isoformat() if s.data else None,
+            'total_presencas': presencas,
+            'total_faltas': faltas,
+            'assiduidade_pct': round((presencas / total * 100), 2) if total > 0 else 0
+        })
+    
+    return {'ok': True, 'sessoes': resultado}
+
+def exportar_atividades(session):
+    """Exporta atividades parlamentares"""
+    print("🗂️ Exportando atividades...")
+    
+    atividades = session.query(
+        DeputadoAtividade, Deputado
+    ).join(Deputado).all()
+    
+    resultado = []
+    for ativ, dep in atividades:
+        resultado.append({
+            'deputado_id': dep.id,
+            'deputado_nome': dep.nome_original_ultimo,
+            'partido': dep.partido_atual,
+            'tipo': ativ.tipo,
+            'legislatura': ativ.legislatura,
+            'total': ativ.total,
+            'ultima_data': ativ.ultima_data.isoformat() if ativ.ultima_data else None
+        })
+    
+    return {'ok': True, 'registos': resultado}
+
+def exportar_agenda(session):
+    """Exporta agenda parlamentar"""
+    print("📆 Exportando agenda...")
+    
+    eventos = session.query(AgendaItem).order_by(AgendaItem.inicio.desc()).limit(100).all()
+    resultado = []
+    
+    for e in eventos:
+        resultado.append({
+            'id': e.id,
+            'titulo': e.titulo,
+            'leg_des': e.leg_des,
+            'inicio': e.inicio.isoformat() if e.inicio else None,
+            'fim': e.fim.isoformat() if e.fim else None,
+            'local': e.local,
+            'link': e.link
+        })
+    
+    return {'ok': True, 'eventos': resultado}
+
+def exportar_substituicoes(session):
+    """Exporta substituições parlamentares"""
+    print("🔄 Exportando substituições...")
+    
+    # Modelo Substituicao não existe, retornar vazio
+    return {'ok': True, 'substituicoes': []}
+
+def main():
+    # Diretório de saída
+    output_dir = Path(__file__).parent / 'frontend' / 'data'
+    output_dir.mkdir(exist_ok=True)
+    
+    print("🚀 Iniciando exportação de dados para JSON...")
+    print(f"📁 Diretório de saída: {output_dir}\n")
+    
+    # Conectar à base de dados
+    engine, SessionLocal = get_engine_and_session()
+    session = SessionLocal()
+    
+    try:
+        # Exportar cada conjunto de dados
+        datasets = {
+            'deputados.json': exportar_deputados(session),
+            'sessoes.json': exportar_sessoes(session),
+            'estatisticas_sessoes.json': exportar_estatisticas_sessoes(session),
+            'atividades.json': exportar_atividades(session),
+            'agenda.json': exportar_agenda(session),
+            'substituicoes.json': exportar_substituicoes(session)
+        }
+        
+        # Salvar arquivos JSON
+        for filename, data in datasets.items():
+            filepath = output_dir / filename
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            
+            # Tamanho do arquivo
+            size_kb = filepath.stat().st_size / 1024
+            print(f"✅ {filename} - {size_kb:.1f} KB")
+        
+        print(f"\n🎉 Exportação concluída! {len(datasets)} arquivos criados.")
+        
+    finally:
+        session.close()
+
+if __name__ == '__main__':
+    main()

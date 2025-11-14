@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>Análise Interativa — Assiduidade Parlamentar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="config.js"></script>
+  <style>
+    /* Barra de navegação comum */
+    .site-header { background:#1e3a8a; color:#fff; border-bottom:1px solid #15306d; }
+    .site-header .container-nav { max-width:1200px; margin:0 auto; padding:.6rem 1rem; display:flex; justify-content:space-between; align-items:center; }
+    .site-header .brand a { color:#fff; text-decoration:none; font-weight:700; }
+    .site-header nav a { color:#e0e7ff; text-decoration:none; margin:0 .4rem; padding:.35rem .6rem; border-radius:8px; }
+    .site-header nav a:hover { background:rgba(255,255,255,.15); }
+    .site-header nav a.active { background:#2563eb; color:#fff; }
+    .page-intro {
+      background:var(--header-bg);
+      color:#fff;
+      padding:1.5rem;
+      position:relative;
+      border-bottom:1px solid rgba(15,23,42,0.25);
+      border-top:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 18px 36px rgba(15,23,42,0.25);
+    }
+    .page-intro h1 { margin:0; font-size:1.8rem; }
+    .page-intro p { margin:.5rem 0 0; opacity:.9; }
+    :root {
+      --bg: #f9fafb;
+      --panel-bg: #fff;
+      --text: #111;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --primary: #1e3a8a;
+      --primary-hover: #2563eb;
+      --header-bg: #1e3a8a;
+    }
+    body.dark-mode {
+      --bg: #0f172a;
+      --panel-bg: #1e293b;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --header-bg: #0f172a;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; margin:0; background:var(--bg); color:var(--text); transition: background .3s, color .3s; }
+    header { background:var(--header-bg); color:#fff; padding:1.5rem; border-bottom:1px solid var(--border); }
+    header h1 { margin:0; font-size:1.8rem; }
+    header p { margin:.5rem 0 0; opacity:.9; }
+    .container { padding:2rem; max-width:1400px; margin:0 auto; }
+    .panel { background:var(--panel-bg); border-radius:12px; padding:1.5rem; margin-bottom:2rem; box-shadow:0 4px 12px rgba(0,0,0,0.1); border:1px solid var(--border); }
+    h2 { margin-top:0; font-size:1.3rem; color:var(--primary); }
+    .dark-toggle { position:absolute; top:1rem; right:1rem; background:rgba(255,255,255,.2); border:none; padding:.5rem 1rem; border-radius:20px; cursor:pointer; color:#fff; font-weight:600; }
+    .dark-toggle:hover { background:rgba(255,255,255,.3); }
+    .stats-summary { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:1rem; margin-bottom:1rem; }
+    .stat-mini { background:var(--primary); color:#fff; padding:1rem; border-radius:8px; text-align:center; }
+    .stat-mini .value { font-size:1.8rem; font-weight:700; }
+    .stat-mini .label { font-size:.85rem; opacity:.9; margin-top:.25rem; }
+    .heatmap-container { overflow-x:auto; }
+    .heatmap-cell { display:inline-block; width:60px; height:30px; text-align:center; line-height:30px; font-size:.75rem; font-weight:600; border:1px solid var(--border); }
+    
+    /* Filtros */
+    .filtros { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1rem; }
+    .filtro-group { display:flex; flex-direction:column; gap:.5rem; }
+    .filtro-group label { font-weight:600; font-size:.9rem; color:var(--text); }
+    .filtro-group select, .filtro-group input { padding:.6rem; border:1px solid var(--border); border-radius:8px; font-size:.95rem; background:var(--panel-bg); color:var(--text); }
+    .filtro-group select:focus, .filtro-group input:focus { outline:none; border-color:var(--primary); }
+    .btn { background:var(--primary); color:#fff; padding:.7rem 1.2rem; border:none; border-radius:8px; cursor:pointer; font-weight:600; font-size:.95rem; }
+    .btn:hover { background:var(--primary-hover); }
+    .btn-secondary { background:#6b7280; }
+    .btn-secondary:hover { background:#4b5563; }
+    .btn-export { background:#059669; }
+    .btn-export:hover { background:#047857; }
+    .btn-group { display:flex; gap:.5rem; align-items:center; }
+    
+    /* Tabela */
+    table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    th, td { padding:.75rem; text-align:left; border-bottom:1px solid var(--border); }
+    th { background:var(--bg); font-weight:600; color:var(--primary); cursor:pointer; user-select:none; position:relative; }
+    th:hover { opacity:.8; }
+    th.sortable::after { content:'⇅'; margin-left:.5rem; opacity:.3; }
+    th.sort-asc::after { content:'↑'; opacity:1; }
+    th.sort-desc::after { content:'↓'; opacity:1; }
+    tr:hover { background:var(--bg); }
+    .pagination { display:flex; gap:.5rem; justify-content:center; margin-top:1rem; align-items:center; }
+    .pagination button { padding:.5rem 1rem; border:1px solid var(--border); background:var(--panel-bg); color:var(--text); border-radius:6px; cursor:pointer; }
+    .pagination button:hover { opacity:.8; }
+    .pagination button.active { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .pagination button:disabled { opacity:.5; cursor:not-allowed; }
+    
+    /* Comparativos */
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    .comparativo-item { padding:1rem; background:var(--bg); border-radius:8px; border:2px solid var(--border); }
+    .comparativo-item.active { border-color:var(--primary); }
+    .comparativo-item h3 { margin:0 0 .5rem; font-size:1rem; color:var(--primary); }
+    .comparativo-item .stat { display:flex; justify-content:space-between; margin:.25rem 0; font-size:.9rem; }
+    .comparativo-item .stat strong { color:var(--text); }
+    
+    /* Canvas */
+    canvas { max-height:350px; }
+    
+    /* Badge */
+    .badge { display:inline-block; padding:.25rem .6rem; background:#e5e7eb; border-radius:999px; font-size:.85rem; font-weight:600; color:#374151; }
+    .badge.success { background:#d1fae5; color:#065f46; }
+    .badge.warning { background:#fef3c7; color:#92400e; }
+    .badge.danger { background:#fee2e2; color:#991b1b; }
+    .badge-green { background:#10b981; color:#fff; }
+    .badge-yellow { background:#f59e0b; color:#fff; }
+    .badge-blue { background:#3b82f6; color:#fff; }
+    .badge-red { background:#ef4444; color:#fff; }
+    
+    /* Substituições */
+    .substituicao-item { 
+      background:var(--bg); 
+      border:1px solid var(--border); 
+      border-radius:8px; 
+      padding:1rem; 
+      margin-bottom:.75rem;
+      display:flex;
+      align-items:flex-start;
+      gap:1rem;
+    }
+    .substituicao-item .partido-nome { 
+      font-weight:700; 
+      color:var(--primary); 
+      min-width:80px; 
+    }
+    .substituicao-item .fluxo { 
+      flex:1; 
+      font-size:.9rem;
+    }
+    .substituicao-item .saiu { color:#ef4444; font-weight:600; }
+    .substituicao-item .entrou { color:#10b981; font-weight:600; }
+    .substituicao-item .seta { color:var(--text-muted); font-size:1.2rem; }
+    .substituicao-item .data-info { 
+      font-size:.8rem; 
+      color:var(--text-muted); 
+    }
+    .substituicao-item ul { 
+      list-style-type: none; 
+      padding-left: 0;
+      margin: .5rem 0;
+    }
+    .substituicao-item li { 
+      padding: .25rem 0;
+    }
+    
+    @media (max-width:768px) { .grid-2 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container-nav">
+      
+      <nav>
+        <a href="public.html">Resumo Público</a>
+        <a href="analise.html" class="active">Análise</a>
+        <a href="atividade.html">Actividade</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-intro" style="position:relative;">
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+    <h1>📊 Análise Interativa — Assiduidade Parlamentar</h1>
+    <p>Ferramenta avançada de investigação e comparação de dados</p>
+  </section>
+
+  <div class="container">
+    <!-- Estatísticas Agregadas do Filtro -->
+    <div class="panel">
+      <h2>📊 Estatísticas do Subset Filtrado</h2>
+      <div class="stats-summary">
+        <div class="stat-mini">
+          <div class="value" id="statDeputados">-</div>
+          <div class="label">Deputados</div>
+        </div>
+        <div class="stat-mini">
+          <div class="value" id="statSessoes">-</div>
+          <div class="label">Sessões</div>
+        </div>
+        <div class="stat-mini">
+          <div class="value" id="statMediaAss">-</div>
+          <div class="label">Assiduidade Média</div>
+        </div>
+        <div class="stat-mini">
+          <div class="value" id="statPresencas">-</div>
+          <div class="label">Presenças Totais</div>
+        </div>
+        <div class="stat-mini">
+          <div class="value" id="statFaltas">-</div>
+          <div class="label">Faltas Totais</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel de Filtros -->
+    <div class="panel">
+      <h2>🔍 Filtros</h2>
+      <div class="filtros">
+        <div class="filtro-group">
+          <label for="filtroBusca">Buscar Deputado</label>
+          <input type="text" id="filtroBusca" placeholder="Nome do deputado...">
+        </div>
+        <div class="filtro-group">
+          <label for="filtroPartido">Partido</label>
+          <select id="filtroPartido">
+            <option value="">Todos os partidos</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="filtroLegislatura">Legislatura</label>
+          <select id="filtroLegislatura">
+            <option value="">Todas as legislaturas</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="filtroDataInicio">Data início</label>
+          <input type="date" id="filtroDataInicio">
+        </div>
+        <div class="filtro-group">
+          <label for="filtroDataFim">Data fim</label>
+          <input type="date" id="filtroDataFim">
+        </div>
+        <div class="filtro-group">
+          <label for="filtroTipoSessao">Tipo de sessão</label>
+          <select id="filtroTipoSessao">
+            <option value="">Todos os tipos</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn" onclick="aplicarFiltros()">Aplicar Filtros</button>
+        <button class="btn btn-secondary" onclick="limparFiltros()">Limpar</button>
+        <button class="btn btn-export" onclick="exportarDados()">⬇ Exportar CSV</button>
+        <span class="badge" id="badgeResultados">0 resultados</span>
+      </div>
+    </div>
+
+    <!-- Gráficos Dinâmicos -->
+    <div class="grid-2">
+      <div class="panel">
+        <h2>📈 Assiduidade por Deputado (Filtrados)</h2>
+        <canvas id="graficoDeputadosFiltrado"></canvas>
+      </div>
+      <div class="panel">
+        <h2>📊 Distribuição de Faltas (Filtradas)</h2>
+        <canvas id="graficoDistribuicaoFiltrado"></canvas>
+      </div>
+    </div>
+
+    <!-- Estatísticas Avançadas de Transparência -->
+    <div class="panel" style="background:linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color:#fff; padding:2rem;">
+      <h2 style="color:#fff; margin:0 0 1rem;">💰 Custo Estimado das Faltas Injustificadas</h2>
+      <div style="text-align:center;">
+        <div style="font-size:2rem; font-weight:700; margin:1rem 0;" id="custoTotal">€0</div>
+        <p style="margin:0; opacity:.9; font-size:.9rem;" id="custoDisclaimer">A calcular...</p>
+        <div style="margin-top:1rem; font-size:.85rem; opacity:.8;" id="custoDetalhes"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h2>📅 Faltas por Dia da Semana</h2>
+        <canvas id="graficoFaltasDiaSemana"></canvas>
+        <p style="margin-top:1rem; color:var(--text-muted); font-size:.85rem; text-align:center;" id="diaComMaisFaltas"></p>
+      </div>
+      <div class="panel">
+        <h2>⚠️ Top 10 Sessões com Menos Assiduidade</h2>
+        <div style="overflow-x:auto; max-height:400px; overflow-y:auto;">
+          <table style="width:100%; font-size:.85rem;">
+            <thead style="position:sticky; top:0; background:var(--panel-bg);">
+              <tr>
+                <th style="text-align:left; padding:.5rem;">Sessão</th>
+                <th style="text-align:left; padding:.5rem;">Data</th>
+                <th style="text-align:left; padding:.5rem;">Dia</th>
+                <th style="text-align:center; padding:.5rem;">Assiduidade</th>
+                <th style="text-align:center; padding:.5rem;">Faltas</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaPioresSessoes">
+              <tr><td colspan="5" style="text-align:center; padding:1rem;">A carregar...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scatter Plot e Temporal -->
+    <div class="grid-2">
+      <div class="panel">
+        <h2>🎯 Scatter: Assiduidade vs Faltas Penalizadoras</h2>
+        <canvas id="graficoScatter"></canvas>
+      </div>
+      <div class="panel">
+        <h2>📉 Evolução Temporal (Sessões Filtradas)</h2>
+        <canvas id="graficoTemporalFiltrado"></canvas>
+      </div>
+    </div>
+
+    <!-- Heatmap Partido × Sessão -->
+    <div class="panel">
+      <h2>🔥 Heatmap: Assiduidade por Partido × Sessão</h2>
+      <p style="margin:0 0 1rem; color:var(--text-muted); font-size:.9rem;">Cores: Verde (≥90%), Amarelo (70-90%), Vermelho (<70%)</p>
+      <div class="heatmap-container" id="heatmapContainer">
+        <p style="text-align:center; color:var(--text-muted);">A carregar heatmap...</p>
+      </div>
+    </div>
+
+    <!-- Substituições de Deputados -->
+    <div class="panel">
+      <h2>🔄 Histórico de Substituições de Deputados</h2>
+      <p style="margin:0 0 1rem; color:var(--text-muted); font-size:.9rem;">
+        Deputados que saíram e foram substituídos por outros no mesmo partido ao longo das sessões
+      </p>
+      <div id="substituicoesContainer">
+        <p style="text-align:center; color:var(--text-muted);">A carregar substituições...</p>
+      </div>
+    </div>
+
+    <!-- Painel de Comparativos -->
+    <div class="panel">
+      <h2>⚖️ Comparativos Lado-a-Lado</h2>
+      <p style="margin:0 0 1rem; color:#6b7280;">Selecione dois deputados ou partidos para comparar</p>
+      <div class="filtros">
+        <div class="filtro-group">
+          <label for="comparativoTipo">Comparar</label>
+          <select id="comparativoTipo" onchange="alterarTipoComparativo()">
+            <option value="deputados">Deputados</option>
+            <option value="partidos">Partidos</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="comparativoA">Elemento A</label>
+          <select id="comparativoA"></select>
+        </div>
+        <div class="filtro-group">
+          <label for="comparativoB">Elemento B</label>
+          <select id="comparativoB"></select>
+        </div>
+        <div class="filtro-group" style="align-self:flex-end;">
+          <button class="btn" onclick="compararElementos()">Comparar</button>
+        </div>
+      </div>
+      <div class="grid-2" id="resultadoComparativo" style="margin-top:1.5rem; display:none;">
+        <div class="comparativo-item" id="comparativoItemA"></div>
+        <div class="comparativo-item" id="comparativoItemB"></div>
+      </div>
+    </div>
+
+    <!-- Tabela Completa de Deputados -->
+    <div class="panel">
+      <h2>📋 Tabela Completa de Deputados</h2>
+      <div style="overflow-x:auto;">
+        <table id="tabelaDeputados">
+          <thead>
+            <tr>
+              <th class="sortable" data-col="nome">Nome</th>
+              <th class="sortable" data-col="partido">Partido</th>
+              <th class="sortable" data-col="assiduidade_pct">Assiduidade (%)</th>
+              <th class="sortable" data-col="presencas">Presenças</th>
+              <th class="sortable" data-col="faltas_penalizadoras">Faltas Penalizadoras</th>
+              <th class="sortable" data-col="faltas_justificadas">Faltas Justificadas</th>
+              <th class="sortable" data-col="missao_parlamentar_amp">Missão Parlamentar</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaDeputadosBody">
+            <tr><td colspan="7" style="text-align:center;">A carregar...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination" id="paginacao"></div>
+    </div>
+  </div>
+
+<script>
+let todosDeputados = [];
+let todasSessoes = [];
+let deputadosFiltrados = [];
+let sessoesAgregadas = [];
+let sessoesFiltradas = [];
+let detalhesDeputadoIndividual = null;
+let chartDeputadosFiltrado, chartDistribuicaoFiltrado, chartScatter, chartTemporalFiltrado, chartFaltasDiaSemana;
+
+// Paginação
+let paginaAtual = 1;
+const itensPorPagina = 20;
+let ordenacao = { coluna: 'assiduidade_pct', direcao: 'desc' };
+
+// Dark Mode
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDark);
+  document.querySelector('.dark-toggle').textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+}
+
+// Carregar preferência dark mode
+if (localStorage.getItem('darkMode') === 'true') {
+  document.body.classList.add('dark-mode');
+  document.querySelector('.dark-toggle').textContent = '☀️ Modo Claro';
+}
+
+async function carregarDados() {
+  try {
+    const [depData, sessData, statsData, substData, avancadaData] = await Promise.all([
+      fetchData('/deputados'),
+      fetchData('/sessoes'),
+      fetchData('/estatisticas/sessoes'),
+      fetchData('/substituicoes'),
+      fetchData('/estatisticas/analise-avancada')
+    ]);
+
+    if (depData?.ok) {
+      todosDeputados = depData.deputados || [];
+      deputadosFiltrados = [...todosDeputados];
+    }
+    if (sessData?.ok) {
+      todasSessoes = sessData.sessoes || [];
+    }
+    if (statsData?.ok) {
+      sessoesAgregadas = statsData.sessoes || [];
+    }
+    if (substData?.ok) {
+      renderizarSubstituicoes(substData);
+    }
+    if (avancadaData?.ok) {
+      renderizarAnaliseAvancada(avancadaData);
+    }
+
+    popularFiltros();
+    await aplicarFiltros();
+  } catch (e) {
+    console.error('Erro ao carregar dados:', e);
+  }
+}
+
+function popularFiltros() {
+  // Partidos
+  const partidos = [...new Set(todosDeputados.map(d => d.partido).filter(Boolean))].sort();
+  const filtroPartido = document.getElementById('filtroPartido');
+  filtroPartido.innerHTML = '<option value="">Todos os partidos</option>' + 
+    partidos.map(p => `<option value="${p}">${p}</option>`).join('');
+
+  // Legislaturas
+  const legislaturas = [...new Set(todasSessoes.map(s => s.legislatura).filter(Boolean))].sort();
+  const filtroLegislatura = document.getElementById('filtroLegislatura');
+  filtroLegislatura.innerHTML = '<option value="">Todas as legislaturas</option>' + 
+    legislaturas.map(l => `<option value="${l}">${l}</option>`).join('');
+
+  // Tipos de sessão
+  const tipos = [...new Set(todasSessoes.map(s => s.tipo).filter(Boolean))].sort();
+  const filtroTipo = document.getElementById('filtroTipoSessao');
+  filtroTipo.innerHTML = '<option value="">Todos os tipos</option>' + 
+    tipos.map(t => `<option value="${t}">${t}</option>`).join('');
+
+  // Datas
+  if (todasSessoes.length > 0) {
+    const datas = todasSessoes.map(s => s.data).sort();
+    document.getElementById('filtroDataInicio').value = datas[0];
+    document.getElementById('filtroDataFim').value = datas[datas.length - 1];
+  }
+
+  // Popular comparativos
+  popularComparativos();
+}
+
+function popularComparativos() {
+  const tipo = document.getElementById('comparativoTipo').value;
+  const selectA = document.getElementById('comparativoA');
+  const selectB = document.getElementById('comparativoB');
+
+  if (tipo === 'deputados') {
+    const deputados = [...todosDeputados].sort((a,b) => a.nome.localeCompare(b.nome));
+    const options = deputados.map(d => `<option value="${d.nome}">${d.nome} (${d.partido})</option>`).join('');
+    selectA.innerHTML = options;
+    selectB.innerHTML = options;
+    if (deputados.length > 1) selectB.selectedIndex = 1;
+  } else {
+    const partidos = [...new Set(todosDeputados.map(d => d.partido).filter(Boolean))].sort();
+    const options = partidos.map(p => `<option value="${p}">${p}</option>`).join('');
+    selectA.innerHTML = options;
+    selectB.innerHTML = options;
+    if (partidos.length > 1) selectB.selectedIndex = 1;
+  }
+}
+
+function alterarTipoComparativo() {
+  popularComparativos();
+  document.getElementById('resultadoComparativo').style.display = 'none';
+}
+
+async function aplicarFiltros() {
+  const busca = document.getElementById('filtroBusca').value.toLowerCase();
+  const partido = document.getElementById('filtroPartido').value;
+  const legislatura = document.getElementById('filtroLegislatura').value;
+  const dataInicio = document.getElementById('filtroDataInicio').value;
+  const dataFim = document.getElementById('filtroDataFim').value;
+  const tipoSessao = document.getElementById('filtroTipoSessao').value;
+
+  const params = new URLSearchParams();
+  if (legislatura) params.append('legislatura', legislatura);
+  if (dataInicio) params.append('data_inicio', dataInicio);
+  if (dataFim) params.append('data_fim', dataFim);
+  if (tipoSessao) params.append('tipo', tipoSessao);
+
+  let baseDeputados = [...todosDeputados];
+
+  if (params.toString()) {
+    try {
+      const json = await fetchData(`/deputados/filtrados?${params.toString()}`);
+      if (json?.ok) {
+        baseDeputados = json.deputados || [];
+      } else {
+        baseDeputados = [];
+      }
+    } catch (err) {
+      console.error('Erro a carregar deputados filtrados:', err);
+      baseDeputados = [];
+    }
+  }
+
+  deputadosFiltrados = baseDeputados.filter(d => {
+    if (busca && !d.nome.toLowerCase().includes(busca)) return false;
+    if (partido && d.partido !== partido) return false;
+    return true;
+  });
+
+  sessoesFiltradas = sessoesAgregadas.filter(s => {
+    if (legislatura && s.legislatura !== legislatura) return false;
+    if (dataInicio && s.data < dataInicio) return false;
+    if (dataFim && s.data > dataFim) return false;
+    if (tipoSessao && s.tipo !== tipoSessao) return false;
+    return true;
+  });
+
+  atualizarInterfaceAposFiltro();
+}
+
+function atualizarInterfaceAposFiltro() {
+  atualizarStatsAgregadas();
+  document.getElementById('badgeResultados').textContent = `${deputadosFiltrados.length} deputados`;
+  paginaAtual = 1;
+  renderizarTabela();
+  desenharGraficosFiltrados();
+  desenharScatterPlot();
+  desenharTemporalFiltrado();
+  desenharHeatmap();
+}
+
+async function limparFiltros() {
+  document.getElementById('filtroBusca').value = '';
+  document.getElementById('filtroPartido').value = '';
+  document.getElementById('filtroLegislatura').value = '';
+  document.getElementById('filtroTipoSessao').value = '';
+  if (todasSessoes.length > 0) {
+    const datas = todasSessoes.map(s => s.data).sort();
+    document.getElementById('filtroDataInicio').value = datas[0];
+    document.getElementById('filtroDataFim').value = datas[datas.length - 1];
+  }
+  await aplicarFiltros();
+}
+
+function atualizarStatsAgregadas() {
+  const total = deputadosFiltrados.length;
+  const numSessoes = sessoesFiltradas.length;
+  const mediaAss = total > 0 
+    ? (deputadosFiltrados.reduce((s,d) => s + Number(d.assiduidade_pct || 0), 0) / total).toFixed(1)
+    : 0;
+  const presencas = deputadosFiltrados.reduce((s,d) => s + Number(d.presencas || 0), 0);
+  const faltas = deputadosFiltrados.reduce((s,d) => 
+    s + Number(d.faltas_penalizadoras || 0) + Number(d.faltas_justificadas || 0), 0);
+
+  document.getElementById('statDeputados').textContent = total;
+  document.getElementById('statSessoes').textContent = numSessoes;
+  document.getElementById('statMediaAss').textContent = mediaAss + '%';
+  document.getElementById('statPresencas').textContent = presencas;
+  document.getElementById('statFaltas').textContent = faltas;
+}
+
+function desenharScatterPlot() {
+  const ctx = document.getElementById('graficoScatter').getContext('2d');
+  const data = deputadosFiltrados.map(d => ({
+    x: Number(d.faltas_penalizadoras || 0),
+    y: Number(d.assiduidade_pct || 0),
+    label: d.nome.split(' ').slice(0,2).join(' ')
+  }));
+
+  if (chartScatter) chartScatter.destroy();
+  chartScatter = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'Deputados',
+        data: data,
+        backgroundColor: 'rgba(59, 130, 246, 0.6)',
+        borderColor: 'rgba(59, 130, 246, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        x: { 
+          title: { display: true, text: 'Faltas Penalizadoras' },
+          ticks: { stepSize: 1 }
+        },
+        y: { 
+          title: { display: true, text: 'Assiduidade (%)' }, 
+          beginAtZero: true, 
+          max: 100 
+        }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const d = data[ctx.dataIndex];
+              return `${d.label}: ${d.y}% (${d.x} faltas)`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+function desenharTemporalFiltrado() {
+  const ctx = document.getElementById('graficoTemporalFiltrado').getContext('2d');
+  const labels = sessoesFiltradas.map(s => `${s.data} (${s.tipo})`);
+  const valores = sessoesFiltradas.map(s => Number(s.assiduidade_pct || 0));
+
+  if (chartTemporalFiltrado) chartTemporalFiltrado.destroy();
+  chartTemporalFiltrado = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Assiduidade (%)',
+        data: valores,
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      scales: { y: { beginAtZero: true, max: 100 } },
+      plugins: { legend: { display: false } }
+    }
+  });
+}
+
+function desenharHeatmap() {
+  const container = document.getElementById('heatmapContainer');
+  const partidos = [...new Set(todosDeputados.map(d => d.partido).filter(Boolean))].sort();
+  
+  // Calcular assiduidade média por partido em cada sessão
+  const heatmapData = partidos.map(partido => {
+    return sessoesFiltradas.map(sessao => {
+      const depsPartido = todosDeputados.filter(d => d.partido === partido);
+      // Aqui simplificamos: usamos a média geral do partido
+      // Para ser preciso, precisaríamos de dados por sessão/deputado (não disponíveis no endpoint atual)
+      const mediaPartido = depsPartido.reduce((s,d) => s + Number(d.assiduidade_pct || 0), 0) / (depsPartido.length || 1);
+      return mediaPartido;
+    });
+  });
+
+  let html = '<table style="border-collapse:collapse;">';
+  html += '<tr><th style="padding:.5rem; border:1px solid var(--border); background:var(--bg); position:sticky; left:0;">Partido</th>';
+  sessoesFiltradas.slice(0, 15).forEach(s => {
+    html += `<th style="padding:.5rem; border:1px solid var(--border); background:var(--bg); font-size:.75rem; writing-mode:vertical-rl; transform:rotate(180deg);">${s.data}</th>`;
+  });
+  html += '</tr>';
+
+  partidos.forEach((partido, i) => {
+    html += `<tr><td style="padding:.5rem; border:1px solid var(--border); background:var(--bg); position:sticky; left:0; font-weight:600;">${partido}</td>`;
+    heatmapData[i].slice(0, 15).forEach(val => {
+      const color = val >= 90 ? '#10b981' : val >= 70 ? '#f59e0b' : '#ef4444';
+      html += `<td style="padding:.5rem; border:1px solid var(--border); background:${color}; color:#fff; text-align:center; font-weight:600; font-size:.8rem;">${val.toFixed(0)}%</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</table>';
+  
+  if (sessoesFiltradas.length === 0) {
+    html = '<p style="text-align:center; color:var(--text-muted);">Sem sessões para exibir no heatmap.</p>';
+  }
+  
+  container.innerHTML = html;
+}
+
+function renderizarAnaliseAvancada(data) {
+  // 1. Custo Estimado
+  const custo = data.custo_estimado;
+  document.getElementById('custoTotal').textContent = 
+    `€${custo.custo_total.toLocaleString('pt-PT', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+  document.getElementById('custoDisclaimer').textContent = custo.disclaimer;
+  document.getElementById('custoDetalhes').textContent = 
+    `${custo.total_faltas_penalizadoras.toLocaleString('pt-PT')} faltas penalizadoras × €${custo.custo_por_dia}/dia`;
+  
+  // 2. Faltas por Dia da Semana
+  const ctx = document.getElementById('graficoFaltasDiaSemana').getContext('2d');
+  const diasData = data.faltas_por_dia_semana;
+  
+  if (chartFaltasDiaSemana) chartFaltasDiaSemana.destroy();
+  chartFaltasDiaSemana = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: diasData.map(d => d.dia),
+      datasets: [{
+        label: 'Total de Faltas',
+        data: diasData.map(d => d.faltas),
+        backgroundColor: ['#ef4444', '#f97316', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#ec4899']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { 
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            afterLabel: (ctx) => {
+              const info = diasData[ctx.dataIndex];
+              return `${info.sessoes} sessões | Média: ${info.media_por_sessao} faltas/sessão`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: { 
+          beginAtZero: true,
+          ticks: { stepSize: 1 }
+        }
+      }
+    }
+  });
+  
+  // Identificar dia com mais faltas
+  const diaComMais = diasData.reduce((max, d) => d.faltas > max.faltas ? d : max, diasData[0]);
+  document.getElementById('diaComMaisFaltas').textContent = 
+    `⚠️ ${diaComMais.dia} é o dia com mais faltas: ${diaComMais.faltas} faltas em ${diaComMais.sessoes} sessões`;
+  
+  // 3. Top 10 Piores Sessões
+  const tbody = document.getElementById('tabelaPioresSessoes');
+  tbody.innerHTML = data.top_10_piores_sessoes.map((s, i) => {
+    const corBadge = s.assiduidade_pct >= 70 ? '#f59e0b' : '#ef4444';
+    return `
+      <tr style="border-bottom:1px solid var(--border);">
+        <td style="padding:.5rem;">${s.id_legis_sessao}</td>
+        <td style="padding:.5rem;">${new Date(s.data).toLocaleDateString('pt-PT')}</td>
+        <td style="padding:.5rem;">${s.dia_semana}</td>
+        <td style="padding:.5rem; text-align:center;">
+          <span style="background:${corBadge}; color:#fff; padding:.25rem .5rem; border-radius:4px; font-weight:600;">
+            ${s.assiduidade_pct}%
+          </span>
+        </td>
+        <td style="padding:.5rem; text-align:center; color:#ef4444; font-weight:600;">${s.faltas_quorum}</td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function desenharGraficosFiltrados() {
+  // Top 20 filtrados
+  const ctx1 = document.getElementById('graficoDeputadosFiltrado').getContext('2d');
+  const sorted = [...deputadosFiltrados].sort((a,b) => b.assiduidade_pct - a.assiduidade_pct);
+  const top = sorted.slice(0, 20);
+  const labels = top.map(d => d.nome.split(' ').slice(0,2).join(' '));
+  const valores = top.map(d => Number(d.assiduidade_pct || 0));
+
+  if (chartDeputadosFiltrado) chartDeputadosFiltrado.destroy();
+  chartDeputadosFiltrado = new Chart(ctx1, {
+    type: 'bar',
+    data: { 
+      labels, 
+      datasets: [{ label: 'Assiduidade (%)', data: valores, backgroundColor: '#3b82f6' }]
+    },
+    options: { 
+      indexAxis: 'y',
+      scales: { x: { beginAtZero: true, max: 100 } },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // Distribuição filtrada
+  const ctx2 = document.getElementById('graficoDistribuicaoFiltrado').getContext('2d');
+  const totais = deputadosFiltrados.reduce((acc, d) => {
+    acc.presencas += Number(d.presencas || 0);
+    acc.faltasJ += Number(d.faltas_justificadas || 0);
+    acc.amp += Number(d.missao_parlamentar_amp || 0);
+    acc.faltasP += Number(d.faltas_penalizadoras || 0);
+    return acc;
+  }, { presencas: 0, faltasJ: 0, amp: 0, faltasP: 0 });
+
+  if (chartDistribuicaoFiltrado) chartDistribuicaoFiltrado.destroy();
+  chartDistribuicaoFiltrado = new Chart(ctx2, {
+    type: 'doughnut',
+    data: { 
+      labels: ['Presenças', 'Faltas ao Quórum', 'Faltas Justificadas', 'Missão Parlamentar'],
+      datasets: [{ 
+        data: [totais.presencas, totais.faltasP, totais.faltasJ, totais.amp],
+        backgroundColor: ['#10b981', '#ef4444', '#f59e0b', '#3b82f6']
+      }]
+    },
+    options: { plugins: { legend: { position: 'bottom' } } }
+  });
+}
+
+function renderizarSubstituicoes(data) {
+  const container = document.getElementById('substituicoesContainer');
+  
+  if (!data || !data.movimentos || Object.keys(data.movimentos).length === 0) {
+    container.innerHTML = '<p style="text-align:center; color:var(--text-muted);">Nenhuma mudança de deputados detectada.</p>';
+    return;
+  }
+  
+  const movimentos = data.movimentos;
+  let html = '';
+  
+  for (const [partido, info] of Object.entries(movimentos).sort()) {
+    const { saidas = [], entradas = [] } = info;
+    
+    if (saidas.length === 0 && entradas.length === 0) continue;
+    
+    html += `
+      <div class="substituicao-item">
+        <div class="partido-nome">${partido}</div>
+        <div class="fluxo" style="flex-direction:column; align-items:flex-start;">
+    `;
+    
+    // Mostrar saídas
+    if (saidas.length > 0) {
+      html += '<div style="margin-bottom:.75rem;"><strong class="saiu">Saíram:</strong><ul style="margin:.25rem 0; padding-left:1.5rem;">';
+      saidas.forEach(s => {
+        const data = new Date(s.ultima_data).toLocaleDateString('pt-PT');
+        html += `<li>${s.nome} <span class="data-info">(última: ${s.ultima_sessao}, ${data})</span></li>`;
+      });
+      html += '</ul></div>';
+    }
+    
+    // Mostrar entradas
+    if (entradas.length > 0) {
+      html += '<div><strong class="entrou">Entraram:</strong><ul style="margin:.25rem 0; padding-left:1.5rem;">';
+      entradas.forEach(e => {
+        const data = new Date(e.primeira_data).toLocaleDateString('pt-PT');
+        html += `<li>${e.nome} <span class="data-info">(início: ${e.primeira_sessao}, ${data})</span></li>`;
+      });
+      html += '</ul></div>';
+    }
+    
+    html += `
+        </div>
+      </div>
+    `;
+  }
+  
+  container.innerHTML = html || '<p style="text-align:center; color:var(--text-muted);">Nenhuma mudança de deputados detectada.</p>';
+}
+
+async function renderizarTabela() {
+  const tbody = document.getElementById('tabelaDeputadosBody');
+  const thead = document.querySelector('#tabelaDeputados thead tr');
+  
+  // Se há apenas 1 deputado filtrado, mostrar detalhes sessão-a-sessão
+  if (deputadosFiltrados.length === 1) {
+    const dep = deputadosFiltrados[0];
+    
+    // Buscar detalhes do deputado
+    try {
+      const data = await fetchData(`/deputados/${encodeURIComponent(dep.nome)}/detalhes`);
+      
+      if (data.ok) {
+        detalhesDeputadoIndividual = data;
+        
+        // Alterar headers da tabela para vista detalhada
+        thead.innerHTML = `
+          <th>Data</th>
+          <th>Sessão</th>
+          <th>Tipo</th>
+          <th>Estado</th>
+          <th>Motivo</th>
+        `;
+        
+        // Renderizar detalhes sessão-a-sessão
+        tbody.innerHTML = data.detalhes.map(d => {
+          const statusBadge = d.status.includes('Presença') ? 'badge-green' : 
+                             d.status.includes('Falta Justificada') ? 'badge-yellow' :
+                             d.status.includes('Missão Parlamentar') ? 'badge-blue' : 'badge-red';
+          
+          return `<tr>
+            <td>${new Date(d.data).toLocaleDateString('pt-PT')}</td>
+            <td>${d.id_legis_sessao}</td>
+            <td>${d.tipo}</td>
+            <td><span class="badge ${statusBadge}">${d.status}</span></td>
+            <td>${d.motivo || '—'}</td>
+          </tr>`;
+        }).join('');
+        
+        // Mostrar info do deputado acima da tabela
+        const h2 = document.querySelector('.panel:has(#tabelaDeputados) h2');
+        h2.innerHTML = `📋 Histórico Detalhado: ${data.deputado.nome} (${data.deputado.partido}) — ${data.total_sessoes} sessões`;
+        
+        document.getElementById('paginacao').innerHTML = '';
+        return;
+      }
+    } catch (e) {
+      console.error('Erro ao buscar detalhes:', e);
+    }
+  }
+  
+  // Vista normal: tabela agregada de deputados
+  detalhesDeputadoIndividual = null;
+  
+  // Restaurar headers originais
+  thead.innerHTML = `
+    <th class="sortable" data-col="nome">Nome</th>
+    <th class="sortable" data-col="partido">Partido</th>
+    <th class="sortable" data-col="assiduidade_pct">Assiduidade (%)</th>
+    <th class="sortable" data-col="presencas">Presenças</th>
+    <th class="sortable" data-col="faltas_penalizadoras">Faltas Penalizadoras</th>
+    <th class="sortable" data-col="faltas_justificadas">Faltas Justificadas</th>
+    <th class="sortable" data-col="missao_parlamentar_amp">Missão Parlamentar</th>
+  `;
+  
+  const h2 = document.querySelector('.panel:has(#tabelaDeputados) h2');
+  h2.innerHTML = '📋 Tabela Completa de Deputados';
+  
+  // Reanexar event listeners após recriar headers
+  anexarEventListenersOrdenacao();
+  
+  // Ordenar
+  const sorted = [...deputadosFiltrados].sort((a, b) => {
+    const valA = a[ordenacao.coluna];
+    const valB = b[ordenacao.coluna];
+    const mult = ordenacao.direcao === 'asc' ? 1 : -1;
+    
+    if (typeof valA === 'number' && typeof valB === 'number') {
+      return (valA - valB) * mult;
+    }
+    return String(valA).localeCompare(String(valB)) * mult;
+  });
+
+  // Paginar
+  const inicio = (paginaAtual - 1) * itensPorPagina;
+  const fim = inicio + itensPorPagina;
+  const paginados = sorted.slice(inicio, fim);
+
+  tbody.innerHTML = paginados.map(d => `<tr>
+    <td>${d.nome}</td>
+    <td><span class="badge">${d.partido}</span></td>
+    <td><strong>${d.assiduidade_pct}%</strong></td>
+    <td>${d.presencas}</td>
+    <td>${d.faltas_penalizadoras}</td>
+    <td>${d.faltas_justificadas}</td>
+    <td>${d.missao_parlamentar_amp}</td>
+  </tr>`).join('');
+
+  renderizarPaginacao(sorted.length);
+  atualizarHeadersOrdenacao();
+}
+
+function renderizarPaginacao(total) {
+  const totalPaginas = Math.ceil(total / itensPorPagina);
+  const paginacao = document.getElementById('paginacao');
+  
+  let html = `
+    <button ${paginaAtual === 1 ? 'disabled' : ''} onclick="mudarPagina(${paginaAtual - 1})">‹ Anterior</button>
+  `;
+  
+  for (let i = 1; i <= totalPaginas; i++) {
+    if (i === 1 || i === totalPaginas || (i >= paginaAtual - 2 && i <= paginaAtual + 2)) {
+      html += `<button class="${i === paginaAtual ? 'active' : ''}" onclick="mudarPagina(${i})">${i}</button>`;
+    } else if (i === paginaAtual - 3 || i === paginaAtual + 3) {
+      html += `<span>...</span>`;
+    }
+  }
+  
+  html += `
+    <button ${paginaAtual === totalPaginas ? 'disabled' : ''} onclick="mudarPagina(${paginaAtual + 1})">Próxima ›</button>
+  `;
+  
+  paginacao.innerHTML = html;
+}
+
+function mudarPagina(novaPagina) {
+  paginaAtual = novaPagina;
+  renderizarTabela();
+}
+
+function atualizarHeadersOrdenacao() {
+  document.querySelectorAll('th.sortable').forEach(th => {
+    th.className = 'sortable';
+    if (th.dataset.col === ordenacao.coluna) {
+      th.classList.add(`sort-${ordenacao.direcao}`);
+    }
+  });
+}
+
+function anexarEventListenersOrdenacao() {
+  document.querySelectorAll('th.sortable').forEach(th => {
+    // Remove listeners antigos clonando o elemento
+    const newTh = th.cloneNode(true);
+    th.parentNode.replaceChild(newTh, th);
+    
+    // Adiciona novo listener
+    newTh.addEventListener('click', () => {
+      const col = newTh.dataset.col;
+      if (ordenacao.coluna === col) {
+        ordenacao.direcao = ordenacao.direcao === 'asc' ? 'desc' : 'asc';
+      } else {
+        ordenacao.coluna = col;
+        ordenacao.direcao = 'desc';
+      }
+      renderizarTabela();
+    });
+  });
+}
+
+// Event listeners para ordenação (chamado no carregamento inicial)
+anexarEventListenersOrdenacao();
+
+function compararElementos() {
+  const tipo = document.getElementById('comparativoTipo').value;
+  const nomeA = document.getElementById('comparativoA').value;
+  const nomeB = document.getElementById('comparativoB').value;
+
+  if (!nomeA || !nomeB) return;
+
+  const resultadoDiv = document.getElementById('resultadoComparativo');
+  const itemADiv = document.getElementById('comparativoItemA');
+  const itemBDiv = document.getElementById('comparativoItemB');
+
+  if (tipo === 'deputados') {
+    const depA = todosDeputados.find(d => d.nome === nomeA);
+    const depB = todosDeputados.find(d => d.nome === nomeB);
+    
+    itemADiv.innerHTML = renderizarDeputado(depA);
+    itemBDiv.innerHTML = renderizarDeputado(depB);
+  } else {
+    const statsA = calcularStatsPartido(nomeA);
+    const statsB = calcularStatsPartido(nomeB);
+    
+    itemADiv.innerHTML = renderizarPartido(nomeA, statsA);
+    itemBDiv.innerHTML = renderizarPartido(nomeB, statsB);
+  }
+
+  resultadoDiv.style.display = 'grid';
+}
+
+function renderizarDeputado(dep) {
+  if (!dep) return '<p>Deputado não encontrado</p>';
+  return `
+    <h3>${dep.nome}</h3>
+    <div class="stat"><strong>Partido:</strong> <span>${dep.partido}</span></div>
+    <div class="stat"><strong>Assiduidade:</strong> <span class="badge ${dep.assiduidade_pct >= 90 ? 'success' : dep.assiduidade_pct >= 70 ? 'warning' : 'danger'}">${dep.assiduidade_pct}%</span></div>
+    <div class="stat"><strong>Presenças:</strong> <span>${dep.presencas}</span></div>
+    <div class="stat"><strong>Faltas Penalizadoras:</strong> <span>${dep.faltas_penalizadoras}</span></div>
+    <div class="stat"><strong>Faltas Justificadas:</strong> <span>${dep.faltas_justificadas}</span></div>
+    <div class="stat"><strong>Missão Parlamentar:</strong> <span>${dep.missao_parlamentar_amp}</span></div>
+  `;
+}
+
+function renderizarPartido(nome, stats) {
+  return `
+    <h3>${nome}</h3>
+    <div class="stat"><strong>Deputados:</strong> <span>${stats.count}</span></div>
+    <div class="stat"><strong>Assiduidade Média:</strong> <span class="badge ${stats.mediaAss >= 90 ? 'success' : stats.mediaAss >= 70 ? 'warning' : 'danger'}">${stats.mediaAss}%</span></div>
+    <div class="stat"><strong>Presenças Totais:</strong> <span>${stats.presencas}</span></div>
+    <div class="stat"><strong>Faltas Penalizadoras:</strong> <span>${stats.faltasP}</span></div>
+    <div class="stat"><strong>Faltas Justificadas:</strong> <span>${stats.faltasJ}</span></div>
+    <div class="stat"><strong>Missão Parlamentar:</strong> <span>${stats.amp}</span></div>
+  `;
+}
+
+function calcularStatsPartido(partido) {
+  const deps = todosDeputados.filter(d => d.partido === partido);
+  return deps.reduce((acc, d) => {
+    acc.count++;
+    acc.somaAss += Number(d.assiduidade_pct || 0);
+    acc.presencas += Number(d.presencas || 0);
+    acc.faltasP += Number(d.faltas_penalizadoras || 0);
+    acc.faltasJ += Number(d.faltas_justificadas || 0);
+    acc.amp += Number(d.missao_parlamentar_amp || 0);
+    return acc;
+  }, { 
+    count: 0, somaAss: 0, presencas: 0, faltasP: 0, faltasJ: 0, amp: 0,
+    get mediaAss() { return this.count > 0 ? (this.somaAss / this.count).toFixed(1) : 0; }
+  });
+}
+
+function exportarDados() {
+  const headers = ['Nome', 'Partido', 'Assiduidade (%)', 'Presenças', 'Faltas Penalizadoras', 'Faltas Justificadas', 'Missão Parlamentar'];
+  const rows = deputadosFiltrados.map(d => [
+    d.nome,
+    d.partido,
+    d.assiduidade_pct,
+    d.presencas,
+    d.faltas_penalizadoras,
+    d.faltas_justificadas,
+    d.missao_parlamentar_amp
+  ]);
+
+  let csv = headers.join(',') + '\n';
+  rows.forEach(row => {
+    csv += row.map(v => `"${v}"`).join(',') + '\n';
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `assiduidade_deputados_${new Date().toISOString().split('T')[0]}.csv`;
+  link.click();
+}
+
+carregarDados();
+</script>
+</body>
+</html>

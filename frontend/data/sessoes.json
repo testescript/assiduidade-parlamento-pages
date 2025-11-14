@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "sessoes": [
+    {
+      "id": 1,
+      "legislatura": "XVII",
+      "numero": "1",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-03",
+      "id_legis_sessao": "XVII_1_2025-06-03"
+    }
+  ]
+}

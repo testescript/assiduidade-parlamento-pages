@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>Actividade Parlamentar — Cruzar assiduidade e agenda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="config.js"></script>
+  <style>
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --bg: #f9fafb;
+      --panel: #fff;
+      --panel-soft: rgba(0,0,0,0.02);
+      --text: #111;
+      --muted: #6b7280;
+      --accent: #1e3a8a;
+      --accent2: #f97316;
+      --border: #e5e7eb;
+      --care: #10b981;
+      --header-bg: #1e3a8a;
+    }
+    
+    body.dark-mode {
+      --bg: #050a16;
+      --panel: #0c1222;
+      --panel-soft: rgba(255,255,255,0.02);
+      --text: #f4f6fb;
+      --muted: #a1a6b3;
+      --accent: #38bdf8;
+      --accent2: #f97316;
+      --border: #1f273d;
+      --care: #94f3a6;
+      --header-bg: #0f172a;
+    }
+    
+    body {
+      margin: 0; 
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background .3s, color .3s;
+    }
+    
+    body.dark-mode {
+      background: radial-gradient(circle at top, #101627, #050710 45%, #05030b 100%);
+    }
+
+    .main-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-header { 
+      background:#1e3a8a; 
+      color:#fff; 
+      border-bottom:1px solid #15306d;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .site-header .container-nav { 
+      max-width:1200px; 
+      margin:0 auto; 
+      padding:.6rem 1rem; 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+    }
+    
+    .site-header .brand a { 
+      color:#fff; 
+      text-decoration:none; 
+      font-weight:700; 
+      font-size: 1.2rem;
+    }
+    
+    .site-header nav a { 
+      color:#e0e7ff; 
+      text-decoration:none; 
+      margin:0 .4rem; 
+      padding:.35rem .6rem; 
+      border-radius:8px; 
+      font-size: 0.9rem;
+    }
+    
+    .site-header nav a:hover { background:rgba(255,255,255,.15); }
+    .site-header nav a.active { background:#2563eb; color:#fff; }
+
+    .page-intro {
+      background:var(--header-bg);
+      color:#fff;
+      padding:1.5rem;
+      position:relative;
+      border-bottom:1px solid rgba(15,23,42,0.25);
+      border-top:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 18px 36px rgba(15,23,42,0.25);
+    }
+    
+    .page-intro h1 { 
+      margin: 0; 
+      font-size: 1.8rem;
+    }
+    
+    .page-intro p { 
+      margin: .5rem 0 0;
+      opacity: .9;
+    }
+    
+    .dark-toggle { 
+      position:absolute; 
+      top:1rem; 
+      right:1rem; 
+      background:rgba(255,255,255,.2); 
+      border:none; 
+      padding:.5rem 1rem; 
+      border-radius:20px; 
+      cursor:pointer; 
+      color:#fff; 
+      font-weight:600; 
+    }
+    .dark-toggle:hover { background:rgba(255,255,255,.3); }
+
+    .main-container {
+      flex: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .panel.full-width { 
+      width: 100%;
+    }
+
+    .panel h2 { 
+      margin-top: 0; 
+      font-size: 1.3rem; 
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .panel h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    .stat-card {
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
+      color: #fff;
+      text-align: center;
+      transition: transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: .5rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .stat-card span {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+    }
+
+    .hint { color: var(--muted); font-size: .9rem; }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-group label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    select {
+      appearance: none;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      padding: .6rem .9rem;
+      font-size: .95rem;
+      min-width: 150px;
+    }
+
+    button {
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      padding: .6rem 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    button:hover { 
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .chart-container {
+      position: relative;
+      height: 300px;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    canvas { 
+      max-width: 100%; 
+      height: 100% !important;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .agenda-container { 
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: .5rem;
+    }
+    
+    .agenda-container::-webkit-scrollbar { width: 6px; }
+    .agenda-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+    .agenda-container::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+    .agenda-container::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+    .agenda-row { 
+      display: flex; 
+      justify-content: space-between; 
+      gap: 1rem; 
+      flex-wrap: wrap; 
+      border-bottom: 1px solid rgba(255,255,255,0.08); 
+      padding-bottom: .75rem; 
+      margin-bottom: .75rem; 
+    }
+    
+    .agenda-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .agenda-row span { display: block; color: var(--muted); font-size: .9rem; }
+    .agenda-row a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+    .tab-controls {
+      margin: 1.5rem 0;
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+
+    button.tab-button {
+      border-radius: 999px;
+      padding: .75rem 1.5rem;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    button.tab-button.active {
+      border-color: var(--primary);
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .tab-content { 
+      display: none; 
+      width: 100%;
+    }
+    
+    .tab-content.active { 
+      display: block; 
+    }
+
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ranking-table th {
+      background: var(--bg);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .ranking-table td {
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .ranking-table tr:hover {
+      background: var(--bg);
+    }
+
+    .rank-badge {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      line-height: 24px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .kpi-card {
+      background: rgba(15,23,42,0.75);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .kpi-value {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .site-header .container-nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .site-header nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .filters {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .filter-group {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      select {
+        min-width: auto;
+        flex: 1;
+      }
+      
+      .agenda-row { 
+        flex-direction: column; 
+      }
+      
+      .main-container {
+        padding: 1rem;
+      }
+      
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .chart-container {
+        height: 250px;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-intro {
+        padding: 1.5rem 1rem;
+      }
+      
+      .page-intro h1 {
+        font-size: 1.5rem;
+      }
+      
+      .panel {
+        padding: 1rem;
+      }
+      
+      .tab-controls {
+        justify-content: center;
+      }
+      
+      button.tab-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <header class="site-header">
+      <div class="container-nav">
+        <div class="brand"><a href="landing.html">Transparência Parlamentar</a></div>
+        <nav>
+          <a href="public.html">Resumo Público</a>
+          <a href="analise.html">Análise</a>
+          <a href="atividade.html" class="active">Actividade</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-intro">
+      <h1>📅 Actividade Parlamentar</h1>
+      <p>Reúne presença, iniciativas e agenda para comparar esforço e compromisso.</p>
+      <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+    </section>
+
+    <main class="main-container">
+      <!-- Filtros -->
+      <section class="panel full-width">
+        <div class="filters">
+          <div class="filter-group">
+            <label for="legislaturaAtividade">Legislatura:</label>
+            <select id="legislaturaAtividade">
+              <option value="">Todas</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="partidoAtividade">Partido:</label>
+            <select id="partidoAtividade">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="tipoAtividade">Tipo:</label>
+            <select id="tipoAtividade">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <button id="atualizarAtividade">Aplicar Filtros</button>
+        </div>
+        
+        <!-- KPIs Principais -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <strong id="totalAtividades">32.471</strong>
+            <span>Total de ações registadas</span>
+          </div>
+          <div class="stat-card">
+            <strong id="deputadosAtivos">995</strong>
+            <span>Deputados com registo</span>
+          </div>
+          <div class="stat-card">
+            <strong id="principaisTipos">7</strong>
+            <span>Tipos de actividade</span>
+          </div>
+          <div class="stat-card">
+            <strong id="mediaAtividades">32,6</strong>
+            <span>Média por deputado</span>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tab-controls">
+          <button class="tab-button active" data-tab="overview">📊 Visão Geral</button>
+          <button class="tab-button" data-tab="deputados">👥 Deputados</button>
+          <button class="tab-button" data-tab="agenda">🗓️ Agenda</button>
+        </div>
+      </section>
+
+      <!-- Tab: Visão Geral -->
+      <div id="tab-overview" class="tab-content active">
+        <div class="charts-grid">
+          <section class="panel">
+            <h2>Actividade por Partido</h2>
+            <div class="chart-container">
+              <canvas id="graficoPartidos"></canvas>
+            </div>
+          </section>
+          
+          <section class="panel">
+            <h2>Distribuição por Tipo</h2>
+            <div class="chart-container">
+              <canvas id="graficoTipos"></canvas>
+            </div>
+          </section>
+        </div>
+
+        <!-- KPIs Secundários -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-value">PS</div>
+            <div class="kpi-label">Partido Mais Activo</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">1.247</div>
+            <div class="kpi-label">Iniciativas Legislativas</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">84%</div>
+            <div class="kpi-label">Taxa de Participação</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">156</div>
+            <div class="kpi-label">Reuniões de Comissão</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Deputados -->
+      <div id="tab-deputados" class="tab-content">
+        <section class="panel">
+          <h2>Top 10 Deputados Mais Activos</h2>
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>Posição</th>
+                <th>Deputado</th>
+                <th>Partido</th>
+                <th>Actividades</th>
+                <th>Tipo Principal</th>
+              </tr>
+            </thead>
+            <tbody id="rankingDeputados">
+              <!-- Preenchido por JavaScript -->
+            </tbody>
+          </table>
+        </section>
+
+        <section class="panel">
+          <h2>Actividade por Partido</h2>
+          <div class="chart-container">
+            <canvas id="graficoPartidosBar"></canvas>
+          </div>
+        </section>
+      </div>
+
+      <!-- Tab: Agenda -->
+      <div id="tab-agenda" class="tab-content">
+        <section class="panel">
+          <h2>Agenda Parlamentar Recente</h2>
+          <div class="agenda-container" id="agendaLista">
+            <!-- Preenchido por JavaScript -->
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let charts = {
+      partidos: null,
+      tipos: null,
+      partidosBar: null
+    };
+
+    // Cores para gráficos
+    const CORES_PARTIDOS = {
+      'PS': '#FF6B6B',
+      'PSD': '#FF9500',
+      'CH': '#4ECDC4',
+      'IL': '#45B7D1',
+      'BE': '#96CEB4',
+      'PCP': '#E74C3C',
+      'L': '#FFEAA7',
+      'PAN': '#74B9FF',
+      'Outros': '#B2BEC3'
+    };
+
+    const CORES_TIPOS = [
+      '#38bdf8', '#f97316', '#22c55e', '#a855f7', 
+      '#facc15', '#ec4899', '#14b8a6', '#f472b6', '#2563eb'
+    ];
+
+    // Estado global da aplicação
+    let dadosAtividade = [];
+    let dadosAgenda = [];
+
+    // Elementos DOM
+    const selectLegislatura = document.getElementById("legislaturaAtividade");
+    const selectPartido = document.getElementById("partidoAtividade");
+    const selectTipo = document.getElementById("tipoAtividade");
+    const agendaLista = document.getElementById("agendaLista");
+    const rankingDeputados = document.getElementById("rankingDeputados");
+    const tabButtons = document.querySelectorAll("button.tab-button");
+    const tabContents = {
+      overview: document.getElementById("tab-overview"),
+      deputados: document.getElementById("tab-deputados"),
+      agenda: document.getElementById("tab-agenda")
+    };
+
+    // Carregar filtros da API
+    async function carregarFiltros() {
+      try {
+        const [dataAtividade, dataDeputados] = await Promise.all([
+          fetchData('/atividade/deputados'),
+          fetchData('/deputados')
+        ]);
+
+        if (dataAtividade.ok) {
+          // Legislaturas
+          const legislaturas = [...new Set(dataAtividade.registos.map(r => r.legislatura).filter(Boolean))];
+          legislaturas.sort();
+          legislaturas.forEach(l => {
+            const option = document.createElement("option");
+            option.value = l;
+            option.textContent = l;
+            selectLegislatura.appendChild(option);
+          });
+
+          // Tipos de atividade
+          const tipos = [...new Set(dataAtividade.registos.map(r => r.tipo).filter(Boolean))];
+          tipos.sort();
+          tipos.forEach(t => {
+            const option = document.createElement("option");
+            option.value = t;
+            option.textContent = t;
+            selectTipo.appendChild(option);
+          });
+        }
+
+        if (dataDeputados.ok) {
+          // Partidos
+          const partidos = [...new Set(dataDeputados.deputados.map(d => d.partido).filter(Boolean))];
+          partidos.sort();
+          partidos.forEach(p => {
+            const option = document.createElement("option");
+            option.value = p;
+            option.textContent = p;
+            selectPartido.appendChild(option);
+          });
+        }
+      } catch (err) {
+        console.error("Erro ao carregar filtros:", err);
+      }
+    }
+
+    // Carregar dados de atividade
+    async function carregarAtividade(legislatura = "", partido = "", tipo = "") {
+      try {
+        const params = new URLSearchParams();
+        if (legislatura) params.set("legislatura", legislatura);
+        if (partido) params.set("partido", partido);
+        if (tipo) params.set("tipo", tipo);
+
+        console.log('🔍 Carregando atividade com filtros:', { legislatura, partido, tipo });
+
+        const [dataAtividade, dataEstatisticas] = await Promise.all([
+          fetchData(`/atividade/deputados?${params.toString()}`),
+          fetchData(`/atividade/estatisticas?${params.toString()}`)
+        ]);
+
+        if (!dataAtividade.ok) return;
+        dadosAtividade = dataAtividade.registos;
+
+        console.log('📊 Registos recebidos:', dadosAtividade.length);
+        console.log('📋 Primeiros 5 registos:', dadosAtividade.slice(0, 5));
+
+        // Agregar dados
+        const totalsByPartido = {};
+        const totalsByTipo = {};
+        const totalsByDeputado = {};
+
+        dadosAtividade.forEach(reg => {
+          // Por partido
+          if (!totalsByPartido[reg.partido]) {
+            totalsByPartido[reg.partido] = 0;
+          }
+          totalsByPartido[reg.partido] += reg.total;
+
+          // Por tipo
+          if (!totalsByTipo[reg.tipo]) {
+            totalsByTipo[reg.tipo] = 0;
+          }
+          totalsByTipo[reg.tipo] += reg.total;
+
+          // Por deputado
+          if (!totalsByDeputado[reg.deputado]) {
+            totalsByDeputado[reg.deputado] = {
+              partido: reg.partido,
+              total: 0,
+              tipos: {}
+            };
+          }
+          totalsByDeputado[reg.deputado].total += reg.total;
+          totalsByDeputado[reg.deputado].tipos[reg.tipo] = (totalsByDeputado[reg.deputado].tipos[reg.tipo] || 0) + reg.total;
+        });
+
+        console.log('👥 Deputados únicos:', Object.keys(totalsByDeputado).length);
+        console.log('🎯 Partidos:', Object.keys(totalsByPartido));
+        console.log('📚 Tipos:', Object.keys(totalsByTipo));
+
+        // Se filtrou por partido, mostrar detalhes
+        if (partido) {
+          const deputadosPartido = Object.entries(totalsByDeputado)
+            .filter(([nome, dados]) => dados.partido === partido);
+          console.log(`🔎 Deputados do ${partido}:`, deputadosPartido.length);
+          console.log('Detalhes:', deputadosPartido.map(([nome, dados]) => ({ nome, total: dados.total })));
+        }
+
+        // Atualizar KPIs principais
+        const totalAtividades = Object.values(totalsByTipo).reduce((a, b) => a + b, 0);
+        const deputadosAtivos = Object.keys(totalsByDeputado).length;
+        const principaisTipos = Object.keys(totalsByTipo).length;
+        const mediaAtividades = deputadosAtivos > 0 ? (totalAtividades / deputadosAtivos).toFixed(1) : 0;
+
+        document.getElementById("totalAtividades").textContent = totalAtividades.toLocaleString('pt-PT');
+        document.getElementById("deputadosAtivos").textContent = deputadosAtivos.toLocaleString('pt-PT');
+        document.getElementById("principaisTipos").textContent = principaisTipos;
+        document.getElementById("mediaAtividades").textContent = mediaAtividades;
+
+        // Atualizar KPIs secundários com dados da API
+        if (dataEstatisticas.ok) {
+          atualizarKPIsSecundarios(dataEstatisticas);
+        }
+
+        // Atualizar gráficos
+        atualizarGraficos(totalsByPartido, totalsByTipo);
+        atualizarRankingDeputados(totalsByDeputado);
+
+      } catch (err) {
+        console.error("Erro ao carregar atividade:", err);
+      }
+    }
+
+    // Atualizar KPIs secundários
+    function atualizarKPIsSecundarios(dados) {
+      const kpiCards = document.querySelectorAll('.kpi-card');
+      if (kpiCards.length >= 4) {
+        kpiCards[0].querySelector('.kpi-value').textContent = dados.partido_mais_ativo || '-';
+        kpiCards[1].querySelector('.kpi-value').textContent = dados.iniciativas_legislativas.toLocaleString('pt-PT');
+        kpiCards[2].querySelector('.kpi-value').textContent = `${dados.taxa_participacao}%`;
+        // O 4º KPI (reuniões de comissão) mantém valor fixo ou pode ser calculado se houver dados
+      }
+    }
+
+    // Sistema de Tabs
+    function selecionarTab(tab) {
+      tabButtons.forEach(btn => {
+        const isActive = btn.dataset.tab === tab;
+        btn.classList.toggle("active", isActive);
+      });
+      Object.entries(tabContents).forEach(([key, el]) => {
+        if (el) {
+          el.classList.toggle("active", key === tab);
+        }
+      });
+    }
+
+    tabButtons.forEach(btn => btn.addEventListener("click", () => selecionarTab(btn.dataset.tab)));
+
+    // Atualizar gráficos com dados reais
+    function atualizarGraficos(totalsByPartido, totalsByTipo) {
+      // Preparar dados de partidos
+      const partidosOrdenados = Object.entries(totalsByPartido)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8);
+      
+      const partidosLabels = partidosOrdenados.map(([nome]) => nome);
+      const partidosData = partidosOrdenados.map(([, total]) => total);
+      const partidosCores = partidosLabels.map(p => CORES_PARTIDOS[p] || '#B2BEC3');
+
+      // Preparar dados de tipos (top 8 + outros)
+      const tiposOrdenados = Object.entries(totalsByTipo).sort((a, b) => b[1] - a[1]);
+      const principaisTipos = tiposOrdenados.slice(0, 8);
+      const restantes = tiposOrdenados.slice(8);
+      
+      if (restantes.length > 0) {
+        const outrosTotal = restantes.reduce((acc, [, valor]) => acc + valor, 0);
+        principaisTipos.push(["Outros", outrosTotal]);
+      }
+
+      const tiposLabels = principaisTipos.map(([nome]) => nome);
+      const tiposData = principaisTipos.map(([, total]) => total);
+      const tiposCores = tiposLabels.map((_, idx) => CORES_TIPOS[idx % CORES_TIPOS.length]);
+
+      // Gráfico de Partidos (Doughnut)
+      renderChart(
+        'graficoPartidos',
+        'doughnut',
+        partidosLabels,
+        partidosData,
+        partidosCores,
+        'Actividade por Partido'
+      );
+
+      // Gráfico de Tipos (Doughnut)
+      renderChart(
+        'graficoTipos',
+        'doughnut',
+        tiposLabels,
+        tiposData,
+        tiposCores,
+        'Distribuição por Tipo'
+      );
+
+      // Gráfico de Partidos (Bar)
+      renderChart(
+        'graficoPartidosBar',
+        'bar',
+        partidosLabels,
+        partidosData,
+        partidosCores,
+        'Actividade por Partido',
+        { legend: false }
+      );
+    }
+
+    function renderChart(canvasId, type, labels, data, colors, label, options = {}) {
+      const ctx = document.getElementById(canvasId);
+      if (charts[canvasId]) {
+        charts[canvasId].destroy();
+      }
+
+      const chart = new Chart(ctx, {
+        type: type,
+        data: {
+          labels,
+          datasets: [{
+            label,
+            data,
+            backgroundColor: colors,
+            borderColor: type === 'bar' ? colors.map(color => color) : 'transparent',
+            borderWidth: type === 'bar' ? 1 : 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: options.legend !== false && type === 'doughnut',
+              position: 'bottom',
+              labels: { color: 'var(--muted)', font: { size: 11 } }
+            },
+            tooltip: {
+              callbacks: {
+                label: context => `${context.label}: ${context.parsed} actividades`
+              }
+            }
+          },
+          ...(type === 'bar' && {
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: { color: 'var(--muted)' },
+                grid: { color: 'rgba(255,255,255,0.1)' }
+              },
+              x: {
+                ticks: { color: 'var(--muted)' },
+                grid: { display: false }
+              }
+            }
+          }),
+          ...(type === 'doughnut' && {
+            cutout: '50%'
+          })
+        }
+      });
+
+      charts[canvasId] = chart;
+    }
+
+    // Atualizar Ranking de Deputados
+    function atualizarRankingDeputados(totalsByDeputado) {
+      const top10 = Object.entries(totalsByDeputado)
+        .sort((a, b) => b[1].total - a[1].total)
+        .slice(0, 10);
+
+      rankingDeputados.innerHTML = '';
+      top10.forEach(([nome, dados], index) => {
+        // Encontrar tipo principal
+        const tipoPrincipal = Object.entries(dados.tipos)
+          .sort((a, b) => b[1] - a[1])[0];
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><span class="rank-badge">${index + 1}</span></td>
+          <td>${nome}</td>
+          <td>${dados.partido}</td>
+          <td>${dados.total}</td>
+          <td>${tipoPrincipal ? tipoPrincipal[0] : '-'}</td>
+        `;
+        rankingDeputados.appendChild(row);
+      });
+    }
+
+    // Carregar Agenda da API
+    async function carregarAgenda(legislatura = "") {
+      try {
+        const params = new URLSearchParams();
+        if (legislatura) params.set("legislatura", legislatura);
+
+        const data = await fetchData(`/atividade/agenda?${params.toString()}`);
+
+        if (!data.ok) return;
+        dadosAgenda = data.agenda;
+
+        agendaLista.innerHTML = '';
+        
+        if (dadosAgenda.length === 0) {
+          agendaLista.innerHTML = '<p style="text-align:center; color:var(--muted); padding:2rem;">Sem eventos na agenda para os filtros selecionados.</p>';
+          return;
+        }
+
+        dadosAgenda.slice(0, 25).forEach(evento => {
+          const div = document.createElement('div');
+          div.className = 'agenda-row';
+          div.innerHTML = `
+            <div>
+              <strong>${evento.titulo || 'Sem título'}</strong>
+              <span>${evento.secao || evento.tema || 'Agenda parlamentar'}</span>
+              ${evento.link ? `<a href="${evento.link}" target="_blank" rel="noopener">Ver mais</a>` : ''}
+            </div>
+            <div>
+              <span>${evento.local || 'Local a definir'}</span>
+              <span>${formatDateTime(evento.inicio)} - ${formatDateTime(evento.fim)}</span>
+            </div>
+          `;
+          agendaLista.appendChild(div);
+        });
+      } catch (err) {
+        console.error("Erro ao carregar agenda:", err);
+        agendaLista.innerHTML = '<p style="text-align:center; color:var(--muted); padding:2rem;">Erro ao carregar agenda.</p>';
+      }
+    }
+
+    function formatDateTime(value) {
+      if (!value) return "Sem horário definido";
+      const date = new Date(value);
+      return date.toLocaleString("pt-PT", { 
+        dateStyle: "short", 
+        timeStyle: "short" 
+      });
+    }
+
+    // Aplicar filtros
+    function aplicarFiltros() {
+      const legislatura = selectLegislatura.value;
+      const partido = selectPartido.value;
+      const tipo = selectTipo.value;
+      
+      carregarAtividade(legislatura, partido, tipo);
+      carregarAgenda(legislatura);
+    }
+
+    // Inicialização
+    async function init() {
+      // Carregar filtros
+      await carregarFiltros();
+      
+      // Carregar dados iniciais
+      await carregarAtividade();
+      await carregarAgenda();
+      
+      // Event listeners
+      selectLegislatura.addEventListener("change", aplicarFiltros);
+      selectPartido.addEventListener("change", aplicarFiltros);
+      selectTipo.addEventListener("change", aplicarFiltros);
+      document.getElementById("atualizarAtividade").addEventListener("click", aplicarFiltros);
+      
+      // Selecionar tab inicial
+      selecionarTab("overview");
+    }
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDark);
+      document.querySelector('.dark-toggle').textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+    }
+
+    // Verificar preferência de dark mode no carregamento
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+      document.querySelector('.dark-toggle').textContent = '☀️ Modo Claro';
+    }
+
+    // Iniciar a aplicação
+    init();
+  </script>
+</body>
+</html>

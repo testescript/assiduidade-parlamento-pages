@@ -1,0 +1,347 @@
+{
+  "ok": true,
+  "eventos": [
+    {
+      "id": 38,
+      "titulo": "Plenário",
+      "leg_des": "XVII",
+      "inicio": "2025-11-27T10:00:00",
+      "fim": "2025-11-27T23:59:00",
+      "local": "Plenário",
+      "link": null
+    },
+    {
+      "id": 37,
+      "titulo": "Audiências do Grupo Parlamentar do CDS-PP",
+      "leg_des": "XVII",
+      "inicio": "2025-11-27T00:00:00",
+      "fim": "2025-11-27T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 36,
+      "titulo": "Plenário",
+      "leg_des": "XVII",
+      "inicio": "2025-11-26T10:00:00",
+      "fim": "2025-11-26T23:59:00",
+      "local": "Plenário",
+      "link": null
+    },
+    {
+      "id": 35,
+      "titulo": "Audiências do Grupo Parlamentar do CDS-PP",
+      "leg_des": "XVII",
+      "inicio": "2025-11-26T00:00:00",
+      "fim": "2025-11-26T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 34,
+      "titulo": "Plenário",
+      "leg_des": "XVII",
+      "inicio": "2025-11-25T11:00:00",
+      "fim": "2025-11-25T23:59:00",
+      "local": "Plenário",
+      "link": null
+    },
+    {
+      "id": 33,
+      "titulo": "Plenário",
+      "leg_des": "XVII",
+      "inicio": "2025-11-24T10:00:00",
+      "fim": "2025-11-24T23:59:00",
+      "local": "Plenário",
+      "link": null
+    },
+    {
+      "id": 32,
+      "titulo": "Audiências do Grupo Parlamentar do PCP",
+      "leg_des": "XVII",
+      "inicio": "2025-11-24T00:00:00",
+      "fim": "2025-11-24T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 31,
+      "titulo": "Plenário",
+      "leg_des": "XVII",
+      "inicio": "2025-11-21T10:00:00",
+      "fim": "2025-11-21T23:59:00",
+      "local": "Plenário",
+      "link": null
+    },
+    {
+      "id": 28,
+      "titulo": "Visitas guiadas ao Palácio de São Bento",
+      "leg_des": "XVII",
+      "inicio": "2025-11-21T00:00:00",
+      "fim": "2025-11-21T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 29,
+      "titulo": "Assistências à Sessão Plenária",
+      "leg_des": "XVII",
+      "inicio": "2025-11-21T00:00:00",
+      "fim": "2025-11-21T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 30,
+      "titulo": "Audiências do Grupo Parlamentar do PS",
+      "leg_des": "XVII",
+      "inicio": "2025-11-21T00:00:00",
+      "fim": "2025-11-21T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 27,
+      "titulo": "Conferência de Líderes",
+      "leg_des": "XVII",
+      "inicio": "2025-11-20T16:00:00",
+      "fim": "2025-11-20T23:59:00",
+      "local": "Sala 7",
+      "link": null
+    },
+    {
+      "id": 26,
+      "titulo": "Comissão de Assuntos Europeus",
+      "leg_des": "XVII",
+      "inicio": "2025-11-20T15:00:00",
+      "fim": "2025-11-20T23:59:00",
+      "local": "",
+      "link": null
+    },
+    {
+      "id": 25,
+      "titulo": "Plenário",
+      "leg_des": "XVII",
+      "inicio": "2025-11-20T10:00:00",
+      "fim": "2025-11-20T23:59:00",
+      "local": "Plenário",
+      "link": null
+    },
+    {
+      "id": 24,
+      "titulo": "Comissão de Assuntos Constitucionais, Direitos, Liberdades e Garantias",
+      "leg_des": "XVII",
+      "inicio": "2025-11-20T09:30:00",
+      "fim": "2025-11-20T23:59:00",
+      "local": "",
+      "link": null
+    },
+    {
+      "id": 22,
+      "titulo": "Visitas guiadas ao Palácio de São Bento",
+      "leg_des": "XVII",
+      "inicio": "2025-11-20T00:00:00",
+      "fim": "2025-11-20T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 23,
+      "titulo": "Assistências à Sessão Plenária",
+      "leg_des": "XVII",
+      "inicio": "2025-11-20T00:00:00",
+      "fim": "2025-11-20T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 20,
+      "titulo": "Visitas guiadas ao Palácio de São Bento",
+      "leg_des": "XVII",
+      "inicio": "2025-11-19T00:00:00",
+      "fim": "2025-11-19T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 21,
+      "titulo": "Audiências do Grupo Parlamentar do PS",
+      "leg_des": "XVII",
+      "inicio": "2025-11-19T00:00:00",
+      "fim": "2025-11-19T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 19,
+      "titulo": "Comissão de Transparência e Estatuto dos Deputados",
+      "leg_des": "XVII",
+      "inicio": "2025-11-18T16:30:00",
+      "fim": "2025-11-18T23:59:00",
+      "local": "",
+      "link": null
+    },
+    {
+      "id": 18,
+      "titulo": "Comissão de Transparência e Estatuto dos Deputados",
+      "leg_des": "XVII",
+      "inicio": "2025-11-18T16:00:00",
+      "fim": "2025-11-18T23:59:00",
+      "local": "",
+      "link": null
+    },
+    {
+      "id": 17,
+      "titulo": "Grupo de Trabalho - Registo de Interesses | Comissão de Transparência e Estatuto dos Deputados ",
+      "leg_des": "XVII",
+      "inicio": "2025-11-18T14:00:00",
+      "fim": "2025-11-18T23:59:00",
+      "local": "",
+      "link": null
+    },
+    {
+      "id": 15,
+      "titulo": "Audiências do Grupo Parlamentar do PS",
+      "leg_des": "XVII",
+      "inicio": "2025-11-18T00:00:00",
+      "fim": "2025-11-18T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 16,
+      "titulo": "Visitas guiadas ao Palácio de São Bento",
+      "leg_des": "XVII",
+      "inicio": "2025-11-18T00:00:00",
+      "fim": "2025-11-18T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 13,
+      "titulo": "Visitas guiadas ao Palácio de São Bento",
+      "leg_des": "XVII",
+      "inicio": "2025-11-17T00:00:00",
+      "fim": "2025-11-17T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 14,
+      "titulo": "Audiências do Grupo Parlamentar do CDS-PP",
+      "leg_des": "XVII",
+      "inicio": "2025-11-17T00:00:00",
+      "fim": "2025-11-17T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 10,
+      "titulo": "Debate com alunos do Liceu Francês Charles Lepierre sobre “Os desafios da democracia”",
+      "leg_des": null,
+      "inicio": "2025-11-14T12:00:00",
+      "fim": "2025-11-14T13:00:00",
+      "local": "Liceu Francês Charles Lepierre",
+      "link": "https://www.parlamento.pt/sites/PARXVIL/Agenda/Paginas/default.aspx"
+    },
+    {
+      "id": 12,
+      "titulo": "Comissão de Orçamento, Finanças e Administração Pública",
+      "leg_des": "XVII",
+      "inicio": "2025-11-14T12:00:00",
+      "fim": "2025-11-14T23:59:00",
+      "local": "Sala 1",
+      "link": null
+    },
+    {
+      "id": 9,
+      "titulo": "Cerimónia de Boas-vindas à Presidente da Assembleia Nacional Francesa",
+      "leg_des": null,
+      "inicio": "2025-11-14T10:30:00",
+      "fim": "2025-11-14T11:30:00",
+      "local": "Passos Perdidos",
+      "link": "https://www.parlamento.pt/sites/PARXVIL/Agenda/Paginas/default.aspx"
+    },
+    {
+      "id": 8,
+      "titulo": "Visitas guiadas ao Palácio de São Bento",
+      "leg_des": "XVII",
+      "inicio": "2025-11-14T00:00:00",
+      "fim": "2025-11-14T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 11,
+      "titulo": "Audiências do Grupo Parlamentar do PS",
+      "leg_des": "XVII",
+      "inicio": "2025-11-14T00:00:00",
+      "fim": "2025-11-14T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 3,
+      "titulo": "Audiência com os representantes do Manifesto pela Igualdade Reprodutiva e um Futuro Sustentável",
+      "leg_des": null,
+      "inicio": "2025-11-13T17:00:00",
+      "fim": "2025-11-13T17:30:00",
+      "local": "Sala de Visitas do PAR",
+      "link": "https://www.parlamento.pt/sites/PARXVIL/Agenda/Paginas/default.aspx"
+    },
+    {
+      "id": 2,
+      "titulo": "Audiência com o Embaixador do Egito",
+      "leg_des": null,
+      "inicio": "2025-11-13T16:00:00",
+      "fim": "2025-11-13T16:30:00",
+      "local": "Sala de Visitas do PAR",
+      "link": "https://www.parlamento.pt/sites/PARXVIL/Agenda/Paginas/default.aspx"
+    },
+    {
+      "id": 1,
+      "titulo": "Audiência com a Presidente da Junta de Freguesia de Ramalde (Porto)",
+      "leg_des": null,
+      "inicio": "2025-11-13T15:15:00",
+      "fim": "2025-11-13T15:45:00",
+      "local": "Sala de Visitas do PAR",
+      "link": "https://www.parlamento.pt/sites/PARXVIL/Agenda/Paginas/default.aspx"
+    },
+    {
+      "id": 7,
+      "titulo": "Comissão de Orçamento, Finanças e Administração Pública",
+      "leg_des": "XVII",
+      "inicio": "2025-11-13T15:00:00",
+      "fim": "2025-11-13T23:59:00",
+      "local": "Sala 7",
+      "link": null
+    },
+    {
+      "id": 4,
+      "titulo": "Audiências do Grupo Parlamentar do PSD",
+      "leg_des": "XVII",
+      "inicio": "2025-11-13T00:00:00",
+      "fim": "2025-11-13T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 5,
+      "titulo": "Audiências do Grupo Parlamentar do PS",
+      "leg_des": "XVII",
+      "inicio": "2025-11-13T00:00:00",
+      "fim": "2025-11-13T00:00:00",
+      "local": null,
+      "link": null
+    },
+    {
+      "id": 6,
+      "titulo": "Audiências do Grupo Parlamentar do CH",
+      "leg_des": "XVII",
+      "inicio": "2025-11-13T00:00:00",
+      "fim": "2025-11-13T00:00:00",
+      "local": null,
+      "link": null
+    }
+  ]
+}

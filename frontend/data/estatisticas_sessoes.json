@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "sessoes": [
+    {
+      "id_legis_sessao": "XVII_1_2025-06-03",
+      "legislatura": "XVII",
+      "numero": "1",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-03",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    }
+  ]
+}
