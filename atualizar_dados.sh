@@ -24,13 +24,13 @@ if [ $? -ne 0 ]; then
 fi
 
 # 3. Verificar se há mudanças
-if ! git diff --quiet frontend/data/; then
+if ! git diff --quiet data/; then
   echo "✅ Mudanças detectadas nos dados JSON"
   
   # 4. Fazer commit das mudanças
   DATA_ATUAL=$(date '+%Y-%m-%d %H:%M:%S')
   echo "💾 Fazendo commit das alterações..."
-  git add frontend/data/*.json
+  git add data/*.json
   git commit -m "📊 Atualização automática de dados - $DATA_ATUAL"
   
   # 5. Push para GitHub
