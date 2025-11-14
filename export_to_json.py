@@ -28,10 +28,11 @@ def exportar_deputados(session):
             Assiduidade.deputado_id == dep.id
         ).all()
         
-        presencas = sum(1 for a in assiduidades if a.status == 'P')
-        faltas_penalizadoras = sum(1 for a in assiduidades if a.status == 'FQ')
-        faltas_justificadas = sum(1 for a in assiduidades if a.status == 'FJ')
-        missao_parlamentar = sum(1 for a in assiduidades if a.status == 'AMP')
+        # Usar comparação parcial para status (pode ser "P" ou "Presença (P)")
+        presencas = sum(1 for a in assiduidades if 'P)' in a.status or a.status == 'Presença (P)')
+        faltas_penalizadoras = sum(1 for a in assiduidades if 'Quórum' in a.status or a.status == 'Falta ao Quórum de Votação')
+        faltas_justificadas = sum(1 for a in assiduidades if 'FJ)' in a.status or a.status == 'Falta Justificada (FJ)')
+        missao_parlamentar = sum(1 for a in assiduidades if 'AMP)' in a.status or a.status == 'Ausência em Missão Parlamentar (AMP)')
         
         total_base = presencas + faltas_penalizadoras
         assiduidade_pct = round((presencas / total_base * 100), 2) if total_base > 0 else 0
@@ -80,19 +81,21 @@ def exportar_estatisticas_sessoes(session):
             Assiduidade.sessao_id == s.id
         ).all()
         
-        presencas = sum(1 for a in assiduidades if a.status == 'P')
-        faltas = sum(1 for a in assiduidades if a.status == 'FQ')
-        total = presencas + faltas
+        presencas = sum(1 for a in assiduidades if 'P)' in a.status or a.status == 'Presença (P)')
+        faltas_penalizadoras = sum(1 for a in assiduidades if 'Quórum' in a.status)
+        
+        total_base = presencas + faltas_penalizadoras
+        assiduidade_pct = round((presencas / total_base * 100), 2) if total_base > 0 else 0
         
         resultado.append({
-            'id_legis_sessao': s.id_legis_sessao,
+            'sessao_id': s.id,
             'legislatura': s.legislatura,
             'numero': s.numero,
             'tipo': s.tipo,
             'data': s.data.isoformat() if s.data else None,
-            'total_presencas': presencas,
-            'total_faltas': faltas,
-            'assiduidade_pct': round((presencas / total * 100), 2) if total > 0 else 0
+            'presencas': presencas,
+            'faltas': faltas_penalizadoras,
+            'assiduidade_pct': assiduidade_pct
         })
     
     return {'ok': True, 'sessoes': resultado}
@@ -101,66 +104,65 @@ def exportar_atividades(session):
     """Exporta atividades parlamentares"""
     print("🗂️ Exportando atividades...")
     
-    atividades = session.query(
-        DeputadoAtividade, Deputado
-    ).join(Deputado).all()
-    
+    atividades = session.query(DeputadoAtividade).all()
     resultado = []
-    for ativ, dep in atividades:
+    
+    for ativ in atividades:
+        deputado = session.query(Deputado).filter(Deputado.id == ativ.deputado_id).first()
+        
         resultado.append({
-            'deputado_id': dep.id,
-            'deputado_nome': dep.nome_original_ultimo,
-            'partido': dep.partido_atual,
+            'id': ativ.id,
+            'deputado_id': ativ.deputado_id,
+            'deputado_nome': deputado.nome_original_ultimo if deputado else None,
+            'partido': deputado.partido_atual if deputado else None,
             'tipo': ativ.tipo,
             'legislatura': ativ.legislatura,
             'total': ativ.total,
-            'ultima_data': ativ.ultima_data.isoformat() if ativ.ultima_data else None
+            'ultima_data': ativ.ultima_data.isoformat() if ativ.ultima_data else None,
+            'detalhes': ativ.detalhes
         })
     
-    return {'ok': True, 'registos': resultado}
+    return {'ok': True, 'atividades': resultado}
 
 def exportar_agenda(session):
     """Exporta agenda parlamentar"""
     print("📆 Exportando agenda...")
     
-    eventos = session.query(AgendaItem).order_by(AgendaItem.inicio.desc()).limit(100).all()
+    # Limitar aos últimos 100 itens
+    agenda = session.query(AgendaItem).order_by(AgendaItem.inicio.desc()).limit(100).all()
     resultado = []
     
-    for e in eventos:
+    for item in agenda:
         resultado.append({
-            'id': e.id,
-            'titulo': e.titulo,
-            'leg_des': e.leg_des,
-            'inicio': e.inicio.isoformat() if e.inicio else None,
-            'fim': e.fim.isoformat() if e.fim else None,
-            'local': e.local,
-            'link': e.link
+            'id': item.id,
+            'inicio': item.inicio.isoformat() if item.inicio else None,
+            'fim': item.fim.isoformat() if item.fim else None,
+            'titulo': item.titulo,
+            'link': item.link
         })
     
-    return {'ok': True, 'eventos': resultado}
+    return {'ok': True, 'agenda': resultado}
 
 def exportar_substituicoes(session):
-    """Exporta substituições parlamentares"""
+    """Exporta dados de substituições (placeholder)"""
     print("🔄 Exportando substituições...")
-    
-    # Modelo Substituicao não existe, retornar vazio
     return {'ok': True, 'substituicoes': []}
 
 def main():
-    # Diretório de saída
-    output_dir = Path(__file__).parent / 'frontend' / 'data'
-    output_dir.mkdir(exist_ok=True)
-    
     print("🚀 Iniciando exportação de dados para JSON...")
+    
+    # Configurar caminho de saída
+    output_dir = Path(__file__).parent / 'data'
+    output_dir.mkdir(exist_ok=True)
     print(f"📁 Diretório de saída: {output_dir}\n")
     
-    # Conectar à base de dados
+    # Conectar à BD
     engine, SessionLocal = get_engine_and_session()
     session = SessionLocal()
     
     try:
-        # Exportar cada conjunto de dados
-        datasets = {
+        # Exportar cada tipo de dados
+        arquivos = {
             'deputados.json': exportar_deputados(session),
             'sessoes.json': exportar_sessoes(session),
             'estatisticas_sessoes.json': exportar_estatisticas_sessoes(session),
@@ -169,17 +171,18 @@ def main():
             'substituicoes.json': exportar_substituicoes(session)
         }
         
-        # Salvar arquivos JSON
-        for filename, data in datasets.items():
+        # Salvar cada arquivo
+        for filename, data in arquivos.items():
             filepath = output_dir / filename
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
             
-            # Tamanho do arquivo
-            size_kb = filepath.stat().st_size / 1024
+            # Mostrar tamanho do arquivo
+            size = filepath.stat().st_size
+            size_kb = size / 1024
             print(f"✅ {filename} - {size_kb:.1f} KB")
         
-        print(f"\n🎉 Exportação concluída! {len(datasets)} arquivos criados.")
+        print(f"\n🎉 Exportação concluída! {len(arquivos)} arquivos criados.")
         
     finally:
         session.close()

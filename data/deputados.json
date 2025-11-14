@@ -15,11 +15,11 @@
       "id": 2,
       "nome": "Helga Correia",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 3,
@@ -45,11 +45,11 @@
       "id": 5,
       "nome": "Emídio Guerreiro",
       "partido": "PSD",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 6,
@@ -75,11 +75,11 @@
       "id": 8,
       "nome": "Firmino Ferreira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 9,
@@ -115,21 +115,21 @@
       "id": 12,
       "nome": "Susana Correia",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 13,
       "nome": "Pedro do Carmo",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 14,
@@ -175,21 +175,21 @@
       "id": 18,
       "nome": "Hugo Oliveira",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 19,
       "nome": "Pedro Nuno Santos",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 20,
@@ -205,11 +205,11 @@
       "id": 21,
       "nome": "Filipe Neto Brandão",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 22,
@@ -325,11 +325,11 @@
       "id": 33,
       "nome": "Paula Cardoso",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 2,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 34,
@@ -515,11 +515,11 @@
       "id": 52,
       "nome": "Rui Rocha",
       "partido": "IL",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 53,
@@ -725,11 +725,11 @@
       "id": 73,
       "nome": "Carlos Cação",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 74,
@@ -785,11 +785,11 @@
       "id": 79,
       "nome": "Sónia Margarida Fernandes",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 80,
@@ -975,11 +975,11 @@
       "id": 98,
       "nome": "Ricardo Barroso",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 99,
@@ -1035,11 +1035,11 @@
       "id": 104,
       "nome": "Joaquim Barbosa",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 105,
@@ -1055,21 +1055,21 @@
       "id": 106,
       "nome": "Júlia Rodrigues",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 107,
       "nome": "Hugo Soares",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 108,
@@ -1085,11 +1085,11 @@
       "id": 109,
       "nome": "Nuno Jorge Gonçalves",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 110,
@@ -1145,11 +1145,11 @@
       "id": 115,
       "nome": "Hernâni Dias",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 116,
@@ -1165,11 +1165,11 @@
       "id": 117,
       "nome": "João Ribeiro",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 118,
@@ -1185,11 +1185,11 @@
       "id": 119,
       "nome": "Leonor Cipriano",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 120,
@@ -1215,11 +1215,11 @@
       "id": 122,
       "nome": "Sofia Machado Fernandes",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 123,
@@ -1235,11 +1235,11 @@
       "id": 124,
       "nome": "Nuno Fazenda",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 125,
@@ -1355,11 +1355,11 @@
       "id": 136,
       "nome": "Ricardo Aires",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 137,
@@ -1415,21 +1415,21 @@
       "id": 142,
       "nome": "Paulo Seco",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 143,
       "nome": "Eliseu Neves",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 144,
@@ -1465,11 +1465,11 @@
       "id": 147,
       "nome": "Carlos Alberto Gonçalves",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 148,
@@ -1585,11 +1585,11 @@
       "id": 159,
       "nome": "Pedro Delgado Alves",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 160,
@@ -1625,11 +1625,11 @@
       "id": 163,
       "nome": "Rosa Isabel Cruz",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 164,
@@ -1685,21 +1685,21 @@
       "id": 169,
       "nome": "Pedro Coimbra",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 170,
       "nome": "Joana Seabra",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 171,
@@ -1735,11 +1735,11 @@
       "id": 174,
       "nome": "Ana Oliveira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 175,
@@ -1775,11 +1775,11 @@
       "id": 178,
       "nome": "José Dias Fernandes",
       "partido": "CH",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 6,
+      "faltas_justificadas": 7,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 179,
@@ -1805,11 +1805,11 @@
       "id": 181,
       "nome": "Martim Syder",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 182,
@@ -1905,21 +1905,21 @@
       "id": 191,
       "nome": "Jorge Galveias",
       "partido": "CH",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 192,
       "nome": "Luís Dias",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 193,
@@ -1985,11 +1985,11 @@
       "id": 199,
       "nome": "Mário Amorim Lopes",
       "partido": "IL",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 200,
@@ -2055,11 +2055,11 @@
       "id": 206,
       "nome": "Rui Cristina",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 207,
@@ -2125,11 +2125,11 @@
       "id": 213,
       "nome": "Maurício Marques",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 214,
@@ -2205,11 +2205,11 @@
       "id": 221,
       "nome": "Francisco Figueira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 222,
@@ -2245,11 +2245,11 @@
       "id": 225,
       "nome": "Gonçalo Valente",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 226,
@@ -2265,11 +2265,11 @@
       "id": 227,
       "nome": "Filipe Melo",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 228,
@@ -2285,41 +2285,41 @@
       "id": 229,
       "nome": "Lina Pinheiro",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 230,
       "nome": "Ricardo Moreira",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 231,
       "nome": "Vanessa Barata",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 232,
       "nome": "Carlos Barbosa",
       "partido": "CH",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 9,
+      "faltas_justificadas": 3,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 90.0
     },
     {
       "id": 233,
@@ -2335,11 +2335,11 @@
       "id": 234,
       "nome": "Rodrigo Alves Taxa",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 235,
@@ -2425,21 +2425,21 @@
       "id": 243,
       "nome": "Sandra Ribeiro",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 244,
       "nome": "Pedro Pinto",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 245,
@@ -2455,11 +2455,11 @@
       "id": 246,
       "nome": "João Paulo Graça",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 247,
@@ -2575,41 +2575,41 @@
       "id": 258,
       "nome": "Pedro Sousa",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 259,
       "nome": "Jorge Botelho",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 260,
       "nome": "José Luís Carneiro",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 91.67
     },
     {
       "id": 261,
       "nome": "Paulo Lopes Silva",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 262,
@@ -2625,21 +2625,21 @@
       "id": 263,
       "nome": "Irene Costa",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 264,
       "nome": "Luís Graça",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 2,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 265,
@@ -2735,11 +2735,11 @@
       "id": 274,
       "nome": "Sandra Lopes",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 275,
@@ -2875,11 +2875,11 @@
       "id": 288,
       "nome": "Francisco César",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 289,
@@ -3015,11 +3015,11 @@
       "id": 302,
       "nome": "Francisco Pimentel",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 303,
@@ -3035,21 +3035,21 @@
       "id": 304,
       "nome": "Ricardo Araújo",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 305,
       "nome": "Bárbara do Amaral Correia",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 306,
@@ -3075,11 +3075,11 @@
       "id": 308,
       "nome": "Paulo Moniz",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 309,
@@ -3095,31 +3095,31 @@
       "id": 310,
       "nome": "Miguel Santos",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 311,
       "nome": "Nuna Menezes",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 312,
       "nome": "Cristóvão Norte",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 92.31
     },
     {
       "id": 313,
@@ -3225,11 +3225,11 @@
       "id": 323,
       "nome": "Pedro dos Santos Frazão",
       "partido": "CH",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 91.67
     },
     {
       "id": 324,
@@ -3265,11 +3265,11 @@
       "id": 327,
       "nome": "Armando Grave",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 328,
@@ -3295,21 +3295,21 @@
       "id": 330,
       "nome": "Maria José Aguiar",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 331,
       "nome": "Pedro Tavares",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 332,
@@ -3385,11 +3385,11 @@
       "id": 339,
       "nome": "Ana Martins",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 340,
@@ -3545,11 +3545,11 @@
       "id": 355,
       "nome": "Flávio Martins",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 1,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 356,
@@ -3585,11 +3585,11 @@
       "id": 359,
       "nome": "José Cesário",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 360,
@@ -3625,11 +3625,11 @@
       "id": 363,
       "nome": "Nuno Simões de Melo",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 364,
@@ -3715,11 +3715,11 @@
       "id": 372,
       "nome": "Almiro Moreira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 373,
@@ -3765,31 +3765,31 @@
       "id": 377,
       "nome": "Salvador Malheiro",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 1,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 378,
       "nome": "Aida Carvalho",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 379,
       "nome": "Dulcineia Catarina Moura",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 380,
@@ -3815,11 +3815,11 @@
       "id": 382,
       "nome": "Adriana Rodrigues",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 383,
@@ -3845,21 +3845,21 @@
       "id": 385,
       "nome": "Gabriel Mithá Ribeiro",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 386,
       "nome": "Carolina Marques",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 387,
@@ -3875,11 +3875,11 @@
       "id": 388,
       "nome": "Paulo Cavaleiro",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 389,
@@ -3895,11 +3895,11 @@
       "id": 390,
       "nome": "Manuel Magno",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 92.31
     },
     {
       "id": 391,
@@ -3925,21 +3925,21 @@
       "id": 393,
       "nome": "Cristina Vieira Henriques",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 394,
       "nome": "Luís Paulo Fernandes",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 395,
@@ -4005,11 +4005,11 @@
       "id": 401,
       "nome": "Catarina Louro",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 402,
@@ -4105,11 +4105,11 @@
       "id": 411,
       "nome": "Eurico Brilhante Dias",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 412,
@@ -4135,11 +4135,11 @@
       "id": 414,
       "nome": "Hugo Patrício Oliveira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 415,
@@ -4185,11 +4185,11 @@
       "id": 419,
       "nome": "Sofia Carreira",
       "partido": "PSD",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 2,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 420,
@@ -4225,21 +4225,21 @@
       "id": 423,
       "nome": "João Antunes dos Santos",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 424,
       "nome": "Ricardo Carvalho",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 425,
@@ -4295,11 +4295,11 @@
       "id": 430,
       "nome": "Célia Freire",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 431,
@@ -4445,11 +4445,11 @@
       "id": 445,
       "nome": "Mariana Mortágua",
       "partido": "BE",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 446,
@@ -4785,11 +4785,11 @@
       "id": 479,
       "nome": "Paulo Núncio",
       "partido": "CDS-PP",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 10,
+      "faltas_justificadas": 3,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 480,
@@ -4905,11 +4905,11 @@
       "id": 491,
       "nome": "André Ventura",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 492,
@@ -4935,31 +4935,31 @@
       "id": 494,
       "nome": "Marta Martins da Silva",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 495,
       "nome": "Felicidade Vital",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 496,
       "nome": "Rui Paulo Sousa",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 497,
@@ -4985,21 +4985,21 @@
       "id": 499,
       "nome": "Rui Cardoso",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 500,
       "nome": "Pedro Pessanha",
       "partido": "CH",
-      "presencas": 0,
-      "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
+      "missao_parlamentar_amp": 2,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 501,
@@ -5015,31 +5015,31 @@
       "id": 502,
       "nome": "Madalena Cordeiro",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 503,
       "nome": "Ricardo Dias Pinto",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 504,
       "nome": "Bruno Nunes",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 505,
@@ -5055,11 +5055,11 @@
       "id": 506,
       "nome": "Patrícia Almeida",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 507,
@@ -5095,11 +5095,11 @@
       "id": 510,
       "nome": "José Barreira Soares",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 511,
@@ -5455,11 +5455,11 @@
       "id": 546,
       "nome": "Rodrigo Saraiva",
       "partido": "IL",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 547,
@@ -5485,11 +5485,11 @@
       "id": 549,
       "nome": "Mariana Leitão",
       "partido": "IL",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 550,
@@ -5515,11 +5515,11 @@
       "id": 552,
       "nome": "Angélique Da Teresa",
       "partido": "IL",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 553,
@@ -5585,11 +5585,11 @@
       "id": 559,
       "nome": "Jorge Miguel Teixeira",
       "partido": "IL",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 560,
@@ -5965,11 +5965,11 @@
       "id": 597,
       "nome": "Rui Tavares",
       "partido": "L",
-      "presencas": 0,
+      "presencas": 10,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 2,
+      "assiduidade_pct": 83.33
     },
     {
       "id": 598,
@@ -6015,11 +6015,11 @@
       "id": 602,
       "nome": "Patrícia Gonçalves",
       "partido": "L",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 2,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 603,
@@ -6035,11 +6035,11 @@
       "id": 604,
       "nome": "Isabel Mendes Lopes",
       "partido": "L",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 605,
@@ -6525,11 +6525,11 @@
       "id": 653,
       "nome": "Inês de Sousa Real",
       "partido": "PAN",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 654,
@@ -7035,11 +7035,11 @@
       "id": 704,
       "nome": "Paulo Raimundo",
       "partido": "PCP",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 705,
@@ -7525,21 +7525,21 @@
       "id": 753,
       "nome": "Frederico Francisco",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 754,
       "nome": "Miguel Matos",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 755,
@@ -7565,101 +7565,101 @@
       "id": 757,
       "nome": "Miguel Cabrita",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 758,
       "nome": "Eva Cruzeiro",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 759,
       "nome": "Pedro Vaz",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 760,
       "nome": "Mariana Vieira da Silva",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 761,
       "nome": "Ricardo Lima",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 91.67
     },
     {
       "id": 762,
       "nome": "Isabel Alves Moreira",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 763,
       "nome": "André Rijo",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 92.31
     },
     {
       "id": 764,
       "nome": "Davide Amado",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 2,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 765,
       "nome": "Ana Bernardo",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 766,
       "nome": "Edite Estrela",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 5,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 767,
@@ -8045,11 +8045,11 @@
       "id": 805,
       "nome": "Sandra Pereira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 806,
@@ -8075,11 +8075,11 @@
       "id": 808,
       "nome": "António Rodrigues",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 2,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 809,
@@ -8115,111 +8115,111 @@
       "id": 812,
       "nome": "Marco Claudino",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 813,
       "nome": "Bruno Ventura",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 814,
       "nome": "Alexandre Poço",
       "partido": "PSD",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 91.67
     },
     {
       "id": 815,
       "nome": "Carlos Reis",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 1,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 816,
       "nome": "Regina Bastos",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 2,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 817,
       "nome": "Andreia Bernardo",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 818,
       "nome": "João Vale e Azevedo",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 1,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 819,
       "nome": "Francisco José Martins",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 820,
       "nome": "João Pedro Louro",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 821,
       "nome": "Cristina Vaz Tomé",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 822,
       "nome": "Margarida Saavedra",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 823,
@@ -8235,11 +8235,11 @@
       "id": 824,
       "nome": "Paulo Lopes Marcelo",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 825,
@@ -8255,11 +8255,11 @@
       "id": 826,
       "nome": "Gonçalo Lage",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 827,
@@ -8275,11 +8275,11 @@
       "id": 828,
       "nome": "Eva Brás Pinho",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 829,
@@ -8485,11 +8485,11 @@
       "id": 849,
       "nome": "Francisco Gomes",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 850,
@@ -8625,11 +8625,11 @@
       "id": 863,
       "nome": "Filipe Sousa",
       "partido": "JPP",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 864,
@@ -8695,11 +8695,11 @@
       "id": 870,
       "nome": "Sofia Canha",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 871,
@@ -8745,11 +8745,11 @@
       "id": 875,
       "nome": "Pedro Coelho",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 876,
@@ -8845,11 +8845,11 @@
       "id": 885,
       "nome": "Vânia Jesus",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 886,
@@ -8865,11 +8865,11 @@
       "id": 887,
       "nome": "Paulo Neves",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 888,
@@ -8905,21 +8905,21 @@
       "id": 891,
       "nome": "João Lopes Aleixo",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 892,
       "nome": "Marcus Santos",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 893,
@@ -9025,11 +9025,11 @@
       "id": 903,
       "nome": "Luís Moreira Testa",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 904,
@@ -9045,21 +9045,21 @@
       "id": 905,
       "nome": "Cristina Rodrigues",
       "partido": "CH",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 2,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 906,
       "nome": "Raul Melo",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 907,
@@ -9095,21 +9095,21 @@
       "id": 910,
       "nome": "Patrícia Nascimento",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 911,
       "nome": "João Pinho de Almeida",
       "partido": "CDS-PP",
-      "presencas": 0,
-      "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 912,
@@ -9125,11 +9125,11 @@
       "id": 913,
       "nome": "Sónia Monteiro",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 914,
@@ -9145,21 +9145,21 @@
       "id": 915,
       "nome": "Rui Afonso",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 916,
       "nome": "Diogo Pacheco de Amorim",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 11,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 91.67
     },
     {
       "id": 917,
@@ -9185,11 +9185,11 @@
       "id": 919,
       "nome": "José Carvalho",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 920,
@@ -9215,11 +9215,11 @@
       "id": 922,
       "nome": "Idalina Durães",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 923,
@@ -9525,11 +9525,11 @@
       "id": 953,
       "nome": "Carlos Guimarães Pinto",
       "partido": "IL",
-      "presencas": 0,
-      "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 954,
@@ -9555,11 +9555,11 @@
       "id": 956,
       "nome": "Miguel Rangel",
       "partido": "IL",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 957,
@@ -9965,11 +9965,11 @@
       "id": 997,
       "nome": "Jorge Pinto",
       "partido": "L",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 998,
@@ -9995,11 +9995,11 @@
       "id": 1000,
       "nome": "Filipa Pinto",
       "partido": "L",
-      "presencas": 0,
-      "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
+      "missao_parlamentar_amp": 4,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1001,
@@ -10395,11 +10395,11 @@
       "id": 1040,
       "nome": "Alfredo Maia",
       "partido": "PCP",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 4,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1041,
@@ -10775,11 +10775,11 @@
       "id": 1078,
       "nome": "Sofia Andrade",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1079,
@@ -10855,21 +10855,21 @@
       "id": 1086,
       "nome": "José Carlos Barbosa",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1087,
       "nome": "Joana Lima",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1088,
@@ -10895,31 +10895,31 @@
       "id": 1090,
       "nome": "Sofia Pereira",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1091,
       "nome": "Tiago Barbosa Ribeiro",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1092,
       "nome": "Patrícia Faro",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1093,
@@ -10935,31 +10935,31 @@
       "id": 1094,
       "nome": "Dália Miranda",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1095,
       "nome": "Porfírio Silva",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1096,
       "nome": "Humberto Brito",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1097,
@@ -10975,11 +10975,11 @@
       "id": 1098,
       "nome": "João Torres",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 4,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1099,
@@ -10995,11 +10995,11 @@
       "id": 1100,
       "nome": "Eduardo Pinheiro",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1101,
@@ -11255,11 +11255,11 @@
       "id": 1126,
       "nome": "Hugo Carneiro",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1127,
@@ -11305,31 +11305,31 @@
       "id": 1131,
       "nome": "Germana Rocha",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1132,
       "nome": "Andreia Neto",
       "partido": "PSD",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1133,
       "nome": "Francisco Sousa Vieira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1134,
@@ -11355,21 +11355,21 @@
       "id": 1136,
       "nome": "Miguel Guimarães",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1137,
       "nome": "Ana Gabriela Cabilhas",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1138,
@@ -11385,11 +11385,11 @@
       "id": 1139,
       "nome": "Francisco Covelinhas Lopes",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1140,
@@ -11415,21 +11415,21 @@
       "id": 1142,
       "nome": "Alberto Machado",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1143,
       "nome": "Carla Barros",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1144,
@@ -11455,31 +11455,31 @@
       "id": 1146,
       "nome": "Alberto Fonseca",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1147,
       "nome": "Olga Freire",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1148,
       "nome": "Ana Isabel Ferreira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1149,
@@ -11515,21 +11515,21 @@
       "id": 1152,
       "nome": "Rui Rocha Pereira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1153,
       "nome": "Gonçalo Dinis Capitão",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1154,
@@ -11745,31 +11745,31 @@
       "id": 1175,
       "nome": "José Dotti",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1176,
       "nome": "Catarina Salgueiro",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1177,
       "nome": "Pedro Correia",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1178,
@@ -11855,21 +11855,21 @@
       "id": 1186,
       "nome": "Hugo Costa",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1187,
       "nome": "Marcos Perestrello",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1188,
@@ -11895,11 +11895,11 @@
       "id": 1190,
       "nome": "Inês Barroso",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1191,
@@ -11975,11 +11975,11 @@
       "id": 1198,
       "nome": "Ricardo Oliveira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1199,
@@ -12035,21 +12035,21 @@
       "id": 1204,
       "nome": "Ricardo Carlos",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1205,
       "nome": "Isaura Morais",
       "partido": "PSD",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1206,
@@ -12065,11 +12065,11 @@
       "id": 1207,
       "nome": "Patrícia Carvalho",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1208,
@@ -12085,11 +12085,11 @@
       "id": 1209,
       "nome": "Rita Matias",
       "partido": "CH",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1210,
@@ -12105,21 +12105,21 @@
       "id": 1211,
       "nome": "Daniel Teixeira",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1212,
       "nome": "Nuno Gabriel",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1213,
@@ -12155,11 +12155,11 @@
       "id": 1216,
       "nome": "Cláudia Estevão",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1217,
@@ -12225,11 +12225,11 @@
       "id": 1223,
       "nome": "Ricardo Lopes Reis",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1224,
@@ -12345,11 +12345,11 @@
       "id": 1235,
       "nome": "Joana Cordeiro",
       "partido": "IL",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 11,
+      "faltas_justificadas": 2,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1236,
@@ -12555,11 +12555,11 @@
       "id": 1256,
       "nome": "Paulo Muacho",
       "partido": "L",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1257,
@@ -12785,11 +12785,11 @@
       "id": 1279,
       "nome": "Paula Santos",
       "partido": "PCP",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1280,
@@ -12925,21 +12925,21 @@
       "id": 1293,
       "nome": "Eurídice Pereira",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1294,
       "nome": "Margarida Afonso",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1295,
@@ -13075,11 +13075,11 @@
       "id": 1308,
       "nome": "António Mendonça Mendes",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1309,
@@ -13095,11 +13095,11 @@
       "id": 1310,
       "nome": "André Pinotes Batista",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 11,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "faltas_penalizadoras": 2,
+      "assiduidade_pct": 84.62
     },
     {
       "id": 1311,
@@ -13145,11 +13145,11 @@
       "id": 1315,
       "nome": "Carlos Pereira",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1316,
@@ -13235,11 +13235,11 @@
       "id": 1324,
       "nome": "Bruno Vitorino",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1325,
@@ -13265,11 +13265,11 @@
       "id": 1327,
       "nome": "Paulo Edson Cunha",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1328,
@@ -13285,21 +13285,21 @@
       "id": 1329,
       "nome": "Teresa Morais",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1330,
       "nome": "Sonia dos Reis",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1331,
@@ -13315,11 +13315,11 @@
       "id": 1332,
       "nome": "Pedro Roque",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1333,
@@ -13485,11 +13485,11 @@
       "id": 1349,
       "nome": "Eduardo Teixeira",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1350,
@@ -13625,11 +13625,11 @@
       "id": 1363,
       "nome": "Marina Gonçalves",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1364,
@@ -13645,11 +13645,11 @@
       "id": 1365,
       "nome": "João Manuel Esteves",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 1,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1366,
@@ -13695,11 +13695,11 @@
       "id": 1370,
       "nome": "José Pedro Aguiar-Branco",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 2,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1371,
@@ -13715,11 +13715,11 @@
       "id": 1372,
       "nome": "Manuela Carvalho",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1373,
@@ -13795,21 +13795,21 @@
       "id": 1380,
       "nome": "José Lago Gonçalves",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1381,
       "nome": "Manuela Tender",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1382,
@@ -13885,11 +13885,11 @@
       "id": 1389,
       "nome": "Rui Jorge Santos",
       "partido": "PS",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1390,
@@ -14005,11 +14005,11 @@
       "id": 1401,
       "nome": "Amílcar Almeida",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 3,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1402,
@@ -14035,11 +14035,11 @@
       "id": 1404,
       "nome": "João Tilly",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1405,
@@ -14115,11 +14115,11 @@
       "id": 1412,
       "nome": "Ana Silveira",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1413,
@@ -14135,11 +14135,11 @@
       "id": 1414,
       "nome": "Fernando Queiroga",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1415,
@@ -14155,11 +14155,11 @@
       "id": 1416,
       "nome": "Armando Mourisco",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1417,
@@ -14195,11 +14195,11 @@
       "id": 1420,
       "nome": "Bernardo Pessanha",
       "partido": "CH",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 2,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1421,
@@ -14215,11 +14215,11 @@
       "id": 1422,
       "nome": "Isabel Fernandes",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1423,
@@ -14255,11 +14255,11 @@
       "id": 1426,
       "nome": "Pedro Alves",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 12,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
-      "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "missao_parlamentar_amp": 1,
+      "faltas_penalizadoras": 1,
+      "assiduidade_pct": 92.31
     },
     {
       "id": 1427,
@@ -14295,11 +14295,11 @@
       "id": 1430,
       "nome": "Elza Pais",
       "partido": "PS",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
-      "missao_parlamentar_amp": 0,
+      "missao_parlamentar_amp": 1,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1431,
@@ -14425,21 +14425,21 @@
       "id": 1443,
       "nome": "Bruno Faria",
       "partido": "PSD",
-      "presencas": 0,
+      "presencas": 13,
       "faltas_justificadas": 0,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1444,
       "nome": "Carlos Silva Santiago",
       "partido": "PSD",
-      "presencas": 0,
-      "faltas_justificadas": 0,
+      "presencas": 12,
+      "faltas_justificadas": 1,
       "missao_parlamentar_amp": 0,
       "faltas_penalizadoras": 0,
-      "assiduidade_pct": 0
+      "assiduidade_pct": 100.0
     },
     {
       "id": 1445,
