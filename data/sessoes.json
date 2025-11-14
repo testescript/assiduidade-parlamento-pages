@@ -8,6 +8,102 @@
       "tipo": "ORDINÁRIA",
       "data": "2025-06-03",
       "id_legis_sessao": "XVII_1_2025-06-03"
+    },
+    {
+      "id": 2,
+      "legislatura": "XVII",
+      "numero": "2",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-17",
+      "id_legis_sessao": "XVII_2_2025-06-17"
+    },
+    {
+      "id": 3,
+      "legislatura": "XVII",
+      "numero": "3",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-18",
+      "id_legis_sessao": "XVII_3_2025-06-18"
+    },
+    {
+      "id": 4,
+      "legislatura": "XVII",
+      "numero": "4",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-25",
+      "id_legis_sessao": "XVII_4_2025-06-25"
+    },
+    {
+      "id": 5,
+      "legislatura": "XVII",
+      "numero": "5",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-26",
+      "id_legis_sessao": "XVII_5_2025-06-26"
+    },
+    {
+      "id": 6,
+      "legislatura": "XVII",
+      "numero": "6",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-27",
+      "id_legis_sessao": "XVII_6_2025-06-27"
+    },
+    {
+      "id": 7,
+      "legislatura": "XVII",
+      "numero": "7",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-02",
+      "id_legis_sessao": "XVII_7_2025-07-02"
+    },
+    {
+      "id": 8,
+      "legislatura": "XVII",
+      "numero": "8",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-03",
+      "id_legis_sessao": "XVII_8_2025-07-03"
+    },
+    {
+      "id": 9,
+      "legislatura": "XVII",
+      "numero": "9",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-04",
+      "id_legis_sessao": "XVII_9_2025-07-04"
+    },
+    {
+      "id": 10,
+      "legislatura": "XVII",
+      "numero": "10",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-09",
+      "id_legis_sessao": "XVII_10_2025-07-09"
+    },
+    {
+      "id": 11,
+      "legislatura": "XVII",
+      "numero": "11",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-10",
+      "id_legis_sessao": "XVII_11_2025-07-10"
+    },
+    {
+      "id": 12,
+      "legislatura": "XVII",
+      "numero": "12",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-11",
+      "id_legis_sessao": "XVII_12_2025-07-11"
+    },
+    {
+      "id": 13,
+      "legislatura": "XVII",
+      "numero": "13",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-16",
+      "id_legis_sessao": "XVII_13_2025-07-16"
     }
   ]
 }

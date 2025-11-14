@@ -10,6 +10,126 @@
       "total_presencas": 0,
       "total_faltas": 0,
       "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_2_2025-06-17",
+      "legislatura": "XVII",
+      "numero": "2",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-17",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_3_2025-06-18",
+      "legislatura": "XVII",
+      "numero": "3",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-18",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_4_2025-06-25",
+      "legislatura": "XVII",
+      "numero": "4",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-25",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_5_2025-06-26",
+      "legislatura": "XVII",
+      "numero": "5",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-26",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_6_2025-06-27",
+      "legislatura": "XVII",
+      "numero": "6",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-06-27",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_7_2025-07-02",
+      "legislatura": "XVII",
+      "numero": "7",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-02",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_8_2025-07-03",
+      "legislatura": "XVII",
+      "numero": "8",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-03",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_9_2025-07-04",
+      "legislatura": "XVII",
+      "numero": "9",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-04",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_10_2025-07-09",
+      "legislatura": "XVII",
+      "numero": "10",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-09",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_11_2025-07-10",
+      "legislatura": "XVII",
+      "numero": "11",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-10",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_12_2025-07-11",
+      "legislatura": "XVII",
+      "numero": "12",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-11",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
+    },
+    {
+      "id_legis_sessao": "XVII_13_2025-07-16",
+      "legislatura": "XVII",
+      "numero": "13",
+      "tipo": "ORDINÁRIA",
+      "data": "2025-07-16",
+      "total_presencas": 0,
+      "total_faltas": 0,
+      "assiduidade_pct": 0
     }
   ]
 }
