@@ -1,42 +1,49 @@
-// Configuração da fonte de dados - VERSÃO GITHUB PAGES
-// Modo: 'static' (GitHub Pages - dados JSON)
+// Configuração da fonte de dados
+// Modo: 'api' (desenvolvimento local) ou 'static' (GitHub Pages)
 const CONFIG = {
-  mode: 'static', // Modo estático para GitHub Pages
-  apiUrl: 'http://127.0.0.1:5001', // Ignorado em modo static
+  mode: 'api', // Modo API para desenvolvimento local
+  apiUrl: 'http://127.0.0.1:5001',
   dataPath: 'data/' // Caminho relativo para os JSON
 };
 
 // Função helper para fazer fetch da fonte correta
 async function fetchData(endpoint) {
-  if (CONFIG.mode === 'api') {
-    // Modo API: fazer pedido HTTP ao backend Flask
-    const response = await fetch(`${CONFIG.apiUrl}${endpoint}`);
-    return await response.json();
+  if (CONFIG.mode === 'static') {
+    // Mapear endpoints da API para arquivos JSON
+    const endpointMap = {
+      '/deputados': 'deputados.json',
+      '/sessoes': 'sessoes.json',
+      '/estatisticas/sessoes': 'estatisticas_sessoes.json',
+      '/atividade/deputados': 'atividades.json',
+      '/atividade/agenda': 'agenda.json',
+      '/atividade/estatisticas': 'atividades.json', // Usar mesmo arquivo
+      '/substituicoes': 'substituicoes.json'
+    };
+    
+    // Lidar com endpoint dinâmico de detalhes de deputado
+    if (endpoint.startsWith('/deputados/') && endpoint.endsWith('/detalhes')) {
+      const nomeDeputado = endpoint.split('/')[2]; // Extrair nome do deputado
+      const response = await fetch(`${CONFIG.dataPath}deputados_detalhes.json`);
+      const allData = await response.json();
+      
+      if (allData.ok && allData.deputados_detalhes[nomeDeputado]) {
+        return { ok: true, ...allData.deputados_detalhes[nomeDeputado] };
+      } else {
+        return { ok: false, mensagem: "Deputado não encontrado" };
+      }
+    }
+    
+    const jsonFile = endpointMap[endpoint];
+    if (!jsonFile) {
+      console.warn(`Endpoint não mapeado: ${endpoint}`);
+      return { ok: false };
+    }
+    
+    const response = await fetch(`${CONFIG.dataPath}${jsonFile}`);
+    return response.json();
   } else {
-    // Modo static: carregar JSON local
-    const jsonFile = mapEndpointToFile(endpoint);
-    const response = await fetch(jsonFile);
-    return await response.json();
+    // Modo API (desenvolvimento)
+    const response = await fetch(`${CONFIG.apiUrl}${endpoint}`);
+    return response.json();
   }
-}
-
-// Mapear endpoints da API para ficheiros JSON
-function mapEndpointToFile(endpoint) {
-  const base = CONFIG.dataPath;
-  
-  // Remover query params para o mapeamento
-  const [path] = endpoint.split('?');
-  
-  const mapping = {
-    '/deputados': `${base}deputados.json`,
-    '/sessoes': `${base}sessoes.json`,
-    '/estatisticas/sessoes': `${base}estatisticas_sessoes.json`,
-    '/atividade/deputados': `${base}atividades.json`,
-    '/atividade/agenda': `${base}agenda.json`,
-    '/substituicoes': `${base}substituicoes.json`,
-    '/estatisticas/analise-avancada': `${base}estatisticas_sessoes.json`,
-    '/atividade/estatisticas': `${base}atividades.json`
-  };
-  
-  return mapping[path] || `${base}deputados.json`;
 }

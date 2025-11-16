@@ -146,9 +146,51 @@ def exportar_agenda(session):
     
     return {'ok': True, 'agenda': resultado}
 
+def exportar_detalhes_deputados(session):
+    """Exporta detalhes sessão-a-sessão de todos os deputados"""
+    print("📋 Exportando detalhes dos deputados...")
+    
+    deputados = session.query(Deputado).all()
+    resultado = {}
+    
+    for dep in deputados:
+        # Verificar se deputado tem assiduidades
+        assiduidades = session.query(Assiduidade, Sessao).join(
+            Sessao, Assiduidade.sessao_id == Sessao.id
+        ).filter(
+            Assiduidade.deputado_id == dep.id
+        ).order_by(Sessao.data.desc()).all()
+        
+        # Só incluir deputados com registos
+        if assiduidades:
+            detalhes = [{
+                "data": sess.data.isoformat(),
+                "id_legis_sessao": sess.id_legis_sessao,
+                "tipo": sess.tipo,
+                "legislatura": sess.legislatura,
+                "numero": sess.numero,
+                "status": ass.status,
+                "motivo": ass.motivo or "",
+                "partido": ass.partido
+            } for ass, sess in assiduidades]
+            
+            resultado[dep.nome_original_ultimo] = {
+                "deputado": {
+                    "nome": dep.nome_original_ultimo,
+                    "partido": dep.partido_atual
+                },
+                "total_sessoes": len(detalhes),
+                "detalhes": detalhes
+            }
+    
+    print(f"   ✅ Detalhes de {len(resultado)} deputados exportados")
+    return {'ok': True, 'deputados_detalhes': resultado}
+
 def exportar_substituicoes(session):
     """Exporta dados de substituições (placeholder)"""
     print("🔄 Exportando substituições...")
+    
+    # Placeholder - implementar se necessário
     return {'ok': True, 'substituicoes': []}
 
 def main():
@@ -171,6 +213,7 @@ def main():
             'estatisticas_sessoes.json': exportar_estatisticas_sessoes(session),
             'atividades.json': exportar_atividades(session),
             'agenda.json': exportar_agenda(session),
+            'deputados_detalhes.json': exportar_detalhes_deputados(session),
             'substituicoes.json': exportar_substituicoes(session)
         }
         
