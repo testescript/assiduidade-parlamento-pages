@@ -895,7 +895,7 @@ async function renderizarTabela() {
             <td>${d.id_legis_sessao}</td>
             <td>${d.tipo}</td>
             <td><span class="badge ${statusBadge}">${d.status}</span></td>
-            <td>${d.motivo || '—'}</td>
+            <td>${d.motivo && d.motivo.trim() ? d.motivo : '—'}</td>
           </tr>`;
         }).join('');
         

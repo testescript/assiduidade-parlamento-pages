@@ -170,7 +170,7 @@ def exportar_detalhes_deputados(session):
                 "legislatura": sess.legislatura,
                 "numero": sess.numero,
                 "status": ass.status,
-                "motivo": ass.motivo or "",
+                "motivo": str(ass.motivo or "").strip(),
                 "partido": ass.partido
             } for ass, sess in assiduidades]
             
